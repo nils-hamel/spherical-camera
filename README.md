@@ -22,6 +22,8 @@ The camera is based on a central two-sided hyperbolic mirror allows to ensure co
 </p>
 <br />
 
+Changing the parameter allows to modulate the size of the mirror, its thickness, the distance of the sensors to the mirror center and the size of the sensor themselves that induce blind spots on the camera seeing. The following images shows two examples of parameter modulation :
+
 <br />
 <p align="center">
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-2a.jpg?raw=true" width="300">
@@ -31,6 +33,16 @@ The camera is based on a central two-sided hyperbolic mirror allows to ensure co
 <i>Examples of camera designs obtained using different sets of parameters leading to variation in size and shape. Images : Nils Hamel</i>
 </p>
 <br />
+
+Indeed, the proposed design is theoretical and ideal. The light reflected by the principal mirror can not be collected by a sensor directly. The sensors can be replaced by standard small cameras to produce the camera captures. This solution was adopted in collaboration with the HES-SO Valais to produce a first prototype of the camera based on the proposed design. The following image gives a view of the built prototype :
+
+<p align="center">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-3.jpg?raw=true" width="600">
+<br />
+<i>Spherical camera prototype made by Charles Papons & Marcelo Kaihara at the HES-SO Valais. Image : Marcelo Kaihara</i>
+</p>
+<br />
+
 
 ## Spherical Algorithm
 
