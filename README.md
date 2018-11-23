@@ -36,8 +36,11 @@ Changing the parameter allows to modulate the size of the mirror, its thickness,
 
 Indeed, the proposed design is theoretical and ideal. The light reflected by the principal mirror can not be collected by a sensor directly. The sensors can be replaced by standard small cameras to produce the camera captures. This solution was adopted in collaboration with the HES-SO Valais to produce a first prototype of the camera based on the proposed design. The following image gives a view of the built prototype :
 
+<br />
 <p align="center">
-<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-3.jpg?raw=true" width="600">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-3a.jpg?raw=true" width="384">
+&nbsp;
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-3b.jpg?raw=true" width="384">
 <br />
 <i>Spherical camera prototype made by Charles Papons & Marcelo Kaihara at the HES-SO Valais. Image : Marcelo Kaihara</i>
 </p>
