@@ -1,5 +1,5 @@
 
-    % @ brief Point set registration
+    % @brief Point set registration
     %
     % This function estimates the best rotation and translation that matches
     % the two provided sets of 3D points, assuming their structural identity.
@@ -17,7 +17,7 @@
     % @return sc_r Estimated rotation matrix
     % @return sc_t Estimated translation vector
 
-    function [ sc_r sc_t ] = sc_svd( sc_p, sc_q )
+    function [ sc_r sc_t ] = algorithm_register( sc_p, sc_q )
 
         % memory management %
         sc_m = zeros( 3, 3 );
