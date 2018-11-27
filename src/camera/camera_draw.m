@@ -17,6 +17,16 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    %  @brief Camera design display
+    %
+    %  This function allows to create an illustrative plot of the camera design
+    %  considering the provided parameters.
+    %
+    %  @param sc_c Hyperbola linear eccentricity
+    %  @param sc_e Hyperbola eccentricity
+    %  @param sc_d Sensor radial size
+    %  @param sc_output PNG output file path
+
     function camera_draw( sc_c, sc_e, sc_d, sc_output )
 
         % derivated parameters %
