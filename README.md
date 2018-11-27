@@ -16,9 +16,9 @@ The camera is based on a central two-sided hyperbolic mirror allows to ensure co
 
 <br />
 <p align="center">
-<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-1a.jpg?raw=true" width="300">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-1a.jpg?raw=true" width="384">
 &nbsp;
-<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-1b.jpg?raw=true" width="300">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-1b.jpg?raw=true" width="384">
 <br />
 <i>Examples of camera designs obtained using different sets of parameters leading to variation in size and shape. Images : Nils Hamel</i>
 </p>
