@@ -12,37 +12,29 @@ The design of the proposed camera is made to address the problem of narrow field
 
 In addition to the field of view, the design of the proposed camera also ensures that all the collected light is focused on a single and common focal point. This property is crucial from the structure from motion point of view, as it allows to consider simple and robust algorithms for pose estimation.
 
-The camera is based on a central two-sided hyperbolic mirror allows to ensure collection of the entire sphere and the focusing on a single common focal point. Three parameters describe the camera design and can be modulated to obtain different configurations. The following image gives an illustration of the camera design for a specific set of parameters :
+The camera is based on a central two-sided hyperbolic mirror allows to ensure collection of the entire sphere and the focusing on a single common focal point. Three parameters describe the camera design and can be modulated to obtain different configurations. The following images give an illustration of the camera design for a specific sets of parameters :
 
 <br />
 <p align="center">
-<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-1.jpg?raw=true" width="600">
-<br />
-<i>Illustration of the camera design with a central two-sided hyperbolic mirror reflecting the light on two opposite digital sensors. Image : Nils Hamel</i>
-</p>
-<br />
-
-Changing the parameter allows to modulate the size of the mirror, its thickness, the distance of the sensors to the mirror center and the size of the sensor themselves that induce blind spots on the camera seeing. The following images shows two examples of parameter modulation :
-
-<br />
-<p align="center">
-<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-2a.jpg?raw=true" width="300">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-1a.jpg?raw=true" width="300">
 &nbsp;
-<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-2b.jpg?raw=true" width="300">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-1b.jpg?raw=true" width="300">
 <br />
 <i>Examples of camera designs obtained using different sets of parameters leading to variation in size and shape. Images : Nils Hamel</i>
 </p>
 <br />
 
+Changing the parameter allows to modulate the size of the mirror, its thickness, the distance of the sensors to the mirror center and the size of the sensor themselves that induce blind spots on the camera seeing.
+
 Indeed, the proposed design is theoretical and ideal. The light reflected by the principal mirror can not be collected by a sensor directly. The sensors can be replaced by standard small cameras to produce the camera captures. This solution was adopted in collaboration with the HES-SO Valais to produce a first prototype of the camera based on the proposed design. The following image gives a view of the built prototype :
 
 <br />
 <p align="center">
-<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-3a.jpg?raw=true" width="384">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-2a.jpg?raw=true" width="384">
 &nbsp;
-<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-3b.jpg?raw=true" width="384">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-2b.jpg?raw=true" width="384">
 <br />
-<i>Spherical camera prototype made by Charles Papons & Marcelo Kaihara at the HES-SO Valais. Image : Marcelo Kaihara</i>
+<i>Spherical camera prototype made by Charles Papons & Marcelo Kaihara - HES-SO Valais. Image : Marcelo Kaihara</i>
 </p>
 <br />
 
