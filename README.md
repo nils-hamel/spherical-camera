@@ -20,7 +20,7 @@ The camera is based on a central two-sided hyperbolic mirror allowing to ensure 
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-1b.jpg?raw=true" width="384">
 <br />
-<i>Examples of camera designs obtained using different sets of parameters. Images : Nils Hamel</i>
+<i>Examples of camera designs obtained using different sets of parameters - Images : Nils Hamel</i>
 </p>
 <br />
 
@@ -34,7 +34,7 @@ Indeed, the proposed design is theoretical and ideal. The light reflected by the
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-2b.jpg?raw=true" width="384">
 <br />
-<i>Spherical camera prototype made by Charles Papon & Marcelo Kaihara - HES-SO Valais. Image : Marcelo Kaihara</i>
+<i>Spherical camera prototype made by Charles Papon & Marcelo Kaihara, HES-SO Valais - Image : Marcelo Kaihara</i>
 </p>
 <br />
 
@@ -44,7 +44,7 @@ As the sensors are replaced by traditional cameras, the device has to be calibra
 <p align="center">
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-3.jpg?raw=true" width="480">
 <br />
-<i>Example of device capture in equirectangular mapping. Image : Charles Papon & Marcelo Kaihara</i>
+<i>Example of device capture in equirectangular mapping - Image : Charles Papon & Marcelo Kaihara</i>
 </p>
 <br />
 
@@ -64,7 +64,7 @@ To estimate the pose between the two captures, the algorithm uses an iterative a
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-1b.jpg?raw=true" width="384">
 <br />
-<i>Last algorithm iteration state on theoretical cases. The yellow line gives the vector between the two camera center while the grey lines link the camera center to the estimated position of _matched features_. - Image : Nils Hamel</i>
+<i>Last algorithm iteration state on theoretical cases. The yellow line gives the vector between the two camera center while the grey lines link the camera center to the estimated position of matched features - Image : Nils Hamel</i>
 </p>
 <br />
 
