@@ -91,7 +91,7 @@
                 s_y = -sc_h * tan( l );
 
                 % display reflected ray %
-                plot( [ sc_raymira_x(i), s_x ], [ sc_raymira_y(i), s_y ], '-', 'Color', [ 255 199 44 ] / 255, 'LineWidth', 1 );
+                plot( [ sc_raymira_x(i), s_x ], [ sc_raymira_y(i), s_y ], '-', 'Color', [ 255 178 36 ] / 255, 'LineWidth', 1 );
 
             end
 
@@ -112,7 +112,7 @@
                 s_y = -sc_h * tan( l );
 
                 % display reflected ray %
-                plot( [ sc_raymirb_x(i), s_x ], [ sc_raymirb_y(i), s_y ], '-', 'Color', [ 255 199 44 ] / 255, 'LineWidth', 1 );
+                plot( [ sc_raymirb_x(i), s_x ], [ sc_raymirb_y(i), s_y ], '-', 'Color', [ 255 178 36 ] / 255, 'LineWidth', 1 );
 
             end
 

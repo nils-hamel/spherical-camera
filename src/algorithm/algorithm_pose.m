@@ -1,5 +1,5 @@
 
-    function [ sc_r, sc_t ] = algorithm_pose( sc_da, sc_db, sc_tol )
+    function [ sc_r, sc_t, sc_ra, sc_rb ] = algorithm_pose( sc_da, sc_db, sc_tol )
 
         % initialise radii %
         sc_ra = ones( size( sc_da, 1 ), 1 );
@@ -11,6 +11,9 @@
         % iteration condition %
         sc_icc = +0.0;
         sc_icp = -1.0;
+
+        % iteration counter %
+        sc_iter = 1;
 
         % pose estimation %
         while ( sc_flag == true )
@@ -47,7 +50,10 @@
             end
 
             % display information %
-            fprintf( 2, 'Iteration with %g remaining\n', sc_icc );
+            fprintf( 2, 'Iteration %i with %g remaining\n', sc_iter, sc_icc );
+
+            % update iteration counter %
+            sc_iter = sc_iter + 1;
 
         end
 
