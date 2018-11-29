@@ -42,7 +42,7 @@ As the sensors are replaced by traditional cameras, the device has to be calibra
 
 <br />
 <p align="center">
-<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-3.jpg?raw=true" width="384">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-3.jpg?raw=true" width="480">
 <br />
 <i>Example of device capture in equirectangular mapping. Image : Charles Papons & Marcelo Kaihara</i>
 </p>
@@ -53,19 +53,19 @@ Of course, the design of the mirror and the mounting system of the two standard 
 
 ## Spherical Algorithm
 
-## ScanVan project Teams
+## ScanVan Project Teams
 
 The _ScanVan_ FNS project (PNR 76 _Big Data_, 167151) was won and conducted by the DHLAB of EFPL and the Institut des Systèmes Industriels of the HES-SO Valais with the following teams :
 
-**EPFL**
-Nils Hamel, Scientist
-Vincent Buntinx, Scientist
-Frédéric Kaplan, Professor
+**EPFL** <br />
+Nils Hamel, Scientist <br />
+Vincent Buntinx, Scientist <br />
+_Frédéric Kaplan, Professor_ <br />
 
-**HES-SO Valais**
-Charles Papon, Scientist
-Marcelo Kaihara, Scientist
-Pierre-André Mudry, Professor
+**HES-SO Valais** <br />
+Charles Papon, Scientist <br />
+Marcelo Kaihara, Scientist <br />
+_Pierre-André Mudry, Professor_
 
 The EPFL team was responsible of the theoretical camera and algorithm design and the HES-SO team was in charge of the prototype development and the onboard implementation of the algorithm.
 
