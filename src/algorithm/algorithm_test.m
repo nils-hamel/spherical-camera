@@ -17,7 +17,7 @@
         sc_cambd = algorithm_project( sc_cambc, sc_cambr, sc_scene );
 
         % compute camera pose %
-        [ sc_r, sc_t, sc_ra, sc_rb ] = algorithm_pose( sc_camad, sc_cambd, 1e-8 );
+        [ sc_r, sc_t, sc_ra, sc_rb, sc_err_rad ] = algorithm_pose( sc_camad, sc_cambd, 1e-8 );
 
         % true rotation %
         sc_r_ = sc_cambr * sc_camar'
@@ -35,6 +35,6 @@
         printf( 'error on rotation : %g and translation : %g\n', sc_r_err, sc_t_err );
 
         % display configuration %
-        algorithm_plot_scene( sc_camad, sc_ra, sc_cambd, sc_rb, sc_r, sc_t, './test.png' );
+        %algorithm_plot_scene( sc_camad, sc_ra, sc_cambd, sc_rb, sc_r, sc_t, './test.png' );
 
     end

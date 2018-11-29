@@ -1,5 +1,5 @@
 
-    function [ sc_r, sc_t, sc_ra, sc_rb ] = algorithm_pose( sc_da, sc_db, sc_tol )
+    function [ sc_r, sc_t, sc_ra, sc_rb, sc_err_rad ] = algorithm_pose( sc_da, sc_db, sc_tol )
 
         % initialise radii %
         sc_ra = ones( size( sc_da, 1 ), 1 );
@@ -51,6 +51,9 @@
 
             % display information %
             fprintf( 2, 'Iteration %i with %g remaining\n', sc_iter, sc_icc );
+
+            % index error on radius %
+            sc_err_rad( sc_iter ) = sc_icc;
 
             % update iteration counter %
             sc_iter = sc_iter + 1;
