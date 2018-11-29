@@ -34,7 +34,7 @@ Indeed, the proposed design is theoretical and ideal. The light reflected by the
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-2b.jpg?raw=true" width="384">
 <br />
-<i>Spherical camera prototype made by Charles Papons & Marcelo Kaihara - HES-SO Valais. Image : Marcelo Kaihara</i>
+<i>Spherical camera prototype made by Charles Papon & Marcelo Kaihara - HES-SO Valais. Image : Marcelo Kaihara</i>
 </p>
 <br />
 
@@ -44,30 +44,29 @@ As the sensors are replaced by traditional cameras, the device has to be calibra
 <p align="center">
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-3.jpg?raw=true" width="480">
 <br />
-<i>Example of device capture in equirectangular mapping. Image : Charles Papons & Marcelo Kaihara</i>
+<i>Example of device capture in equirectangular mapping. Image : Charles Papon & Marcelo Kaihara</i>
 </p>
 <br />
 
 Of course, the design of the mirror and the mounting system of the two standard cameras used to capture the mirror reflection induce reduction of the four _pi_ field of view. Nevertheless, this prototype is able to considerably increase the field of view according to standard cameras and other omnidirectional devices. In addition, the presented image offers a perfect four _pi_ images without any parallax effects.
 
-
 ## Spherical Algorithm
 
 ## ScanVan Project Teams
 
-The _ScanVan_ FNS project (PNR 76 _Big Data_, 167151) was won and conducted by the DHLAB of EFPL and the Institut des Systèmes Industriels of the HES-SO Valais with the following teams :
+The _ScanVan_ FNS project (PNR 76 _Big Data_, 167151) was won and conducted by the _DHLAB_ of EFPL and the _Institut des Systèmes Industriels_ of the HES-SO Valais with the following teams :
 
 **EPFL** <br />
 Nils Hamel, Scientist <br />
 Vincent Buntinx, Scientist <br />
-_Frédéric Kaplan, Professor_ <br />
+_Frédéric Kaplan, Professor_
 
 **HES-SO Valais** <br />
 Charles Papon, Scientist <br />
 Marcelo Kaihara, Scientist <br />
 _Pierre-André Mudry, Professor_
 
-The EPFL team was responsible of the theoretical camera and algorithm design and the HES-SO team was in charge of the prototype development and the onboard implementation of the algorithm.
+The EPFL team was responsible of the theoretical camera and algorithm design and the HES-SO team was in charge of the prototype development and the onboard implementation of the algorithm. The sources of the project can be accessed [here](https://github.com/ScanVan).
 
 ## Dependencies
 
