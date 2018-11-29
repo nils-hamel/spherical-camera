@@ -52,6 +52,24 @@ Of course, the design of the mirror and the mounting system of the two standard 
 
 ## Spherical Algorithm
 
+The algorithm is designed to take advantage of the spherical configuration of the camera, and more specifically of the absence of intrinsic parameters. The absence of intrinsic parameters allows to simplify the pose estimation problem, reducing it to the simple estimation of one rotation matrix and one translation vector.
+
+Because the spherical camera is free of intrinsic parameter, the captures it produces can be identified to a simple projection on a unit sphere of the surrounding selected points. As for any pose estimation algorithm, _matched features_ are considered for the pose estimation between two spherical captures. A _matched feature_ is then understood as a common scene point projected on the two unit spheres representing two camera captures. The input of the pose estimation algorithm is then a collection of point projected on the two considered unit spheres.
+
+To estimate the pose between the two captures, the algorithm uses an iterative application of the least-squares fitting of 3D point sets described in [4]. The following assumption is made : the point depth being lost after projection on unit spheres, it is assumed that the structure of the projection is sufficient to compute a first approximation of the rotation and translation to match the two point set. With the knowledge of a first estimated rotation and translation, it is possible to correct the radii of the projection on the unit sphere through best intersection estimation between the _matched features_. In other words, the projections of the points are pushed away from the unit sphere to iteratively retrieve the depth information. After each radii correction, a new rotation and translation is computed applying the [4] method. At the end of the iteration, the correct depth of the point is expected to be known, leading to a good estimation of the rotation and translation between the two camera captures. The following images give an illustration of the situation at the last iteration of two theoretical cases :
+
+<br />
+<p align="center">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-1a.jpg?raw=true" width="384">
+&nbsp;
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-1b.jpg?raw=true" width="384">
+<br />
+<i>Last algorithm iteration state on theoretical cases. The yellow line gives the vector between the two camera center while the grey lines link the camera center to the estimated position of _matched features_. - Image : Nils Hamel</i>
+</p>
+<br />
+
+The iteration stop condition is deduced from a characteristic of the algorithm design. As each _matched feature_ has a projection on each sphere, two sets of radii are corrected at each iteration. The convergence condition is that, considering the estimated rotation and translation, that the radii of one _matched features_ should lead to the same location, that is the position of the _feature_ in space. The distances between the two position defined by the two radii of a _feature_ can be used as an error function. Considering the largest error on a set of _matched features_, the algorithm stops is this value variation over two iteration goes below a tolerance value.
+
 ## ScanVan Project Teams
 
 The _ScanVan_ FNS project (PNR 76 _Big Data_, 167151) was won and conducted by the _DHLAB_ of EFPL and the _Institut des Systèmes Industriels_ of the HES-SO Valais with the following teams :
@@ -90,3 +108,5 @@ This program is licensed under the terms of the GNU GPLv3.
 [2] GANDHI, Tarak et TRIVEDI, Mohan. Parametric ego-motion estimation for vehicle surround analysis using an omnidirectional camera. Machine Vision and Applications, 2005, vol. 16, no 2, p. 85-95.
 
 [3] Christopher Mei, Patrick Rives. Single View Point Omnidirectional Camera Calibration from Planar Grids. IEEE International Conference on Robotics and Automation (ICRA), Apr 2007, Rome, Italy. IEEE, pp.3945-3950, 2007
+
+[4] ARUN, K. Somani, HUANG, Thomas S., et BLOSTEIN, Steven D. Least-squares fitting of two 3-D point sets. IEEE Transactions on Pattern Analysis & Machine Intelligence, 1987, no 5, p. 698-700.
