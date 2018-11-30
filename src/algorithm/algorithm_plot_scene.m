@@ -44,10 +44,10 @@
         plot3( [ 0, sc_t(1) ], [ 0, sc_t(2) ], [ 0, sc_t(3) ], '-r', 'color', [ 255 187 61 ] / 255, 'linewidth', 2 );
 
         % display camera center %
-        plot3( 0, 0, 0, 'o', 'color', [ 255 178 36 ] / 255 );
+        plot3( 0, 0, 0, 'o', 'color', [ 36 131 255 ] / 255 );
 
         % display camera center %
-        plot3( sc_t(1), sc_t(2), sc_t(3), 'x', 'color', [ 255 178 36 ] / 255 );
+        plot3( sc_t(1), sc_t(2), sc_t(3), 'x', 'color', [ 36 131 255 ] / 255 );
 
         % axis configuration %
         xlabel( 'x' );

@@ -84,6 +84,21 @@ The following plots illustrate the convergence behavior of the algorithm on a si
 
 The error measure on rotation is computed by multiplying the estimated matrix with the transposed of the true matrix. The identity is subtracted to the result before to consider the Frobenius norm. The error measure on translation is more complicated as the scale factor is not known. The error is computed by taking one minus the dot product between the estimated translation and the true translation converted as unit vectors.
 
+The following plots show the ability of the pose estimation algorithm to resist to strong noise on _matched features_. They show how the error on estimated rotations and translations evolve with the addition of noise to the position of the _matched features_. The algorithm is used on random situations on which noise is added on position of the _matched features_. The amplitude of the noise is expressed as a multiplication factor of the norm of the true translation between the two camera captures. In addition, independent noise is added for both camera. The following plot shows the error mean and standard deviation computed on _64_ pose estimation for each noise amplitude :
+
+<br />
+<p align="center">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-3a.jpg?raw=true" width="384">
+&nbsp;
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-3b.jpg?raw=true" width="384">
+<br />
+<i>Error evolution according to noise on rotation (left) and tranlsation (right) - Images : Nils Hamel</i>
+</p>
+<br />
+
+This clearly shows that the algorithm is robust in case on strongly noised data and allows to maintain a constant precision in the estimation on the rotation and translation.
+
+
 
 ## ScanVan Project Teams
 

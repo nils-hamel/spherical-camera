@@ -5,8 +5,8 @@
         sc_scene = algorithm_scene( zeros(1,3), 10, sc_count, false );
 
         % create camera center %
-        sc_camac = ( rand(1,3) - 0.5 ) * 5;
-        sc_cambc = ( rand(1,3) - 0.5 ) * 5;
+        sc_camac = ( rand(1,3) - 0.5 ) * 5
+        sc_cambc = ( rand(1,3) - 0.5 ) * 5
 
         % create camera rotation %
         sc_camar = algorithm_randrot();

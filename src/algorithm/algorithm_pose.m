@@ -34,7 +34,7 @@
             [ sc_ra, sc_rb ] = algorithm_radius( sc_rt', sc_dc, zeros( 1, 3 ), sc_db );
 
             % compute error %
-            sc_icc = algorithm_error( sc_rt', sc_dc, sc_ra, zeros( 1, 3 ), sc_db, sc_rb );
+            sc_icc = algorithm_error( sc_rt', sc_dc, sc_ra, zeros( 1, 3 ), sc_db, sc_rb ) / norm( sc_rt );
 
             % compute iteration condition %
             if ( abs( sc_icc - sc_icp ) < sc_tol )
