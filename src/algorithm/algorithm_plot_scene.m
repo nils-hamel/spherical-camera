@@ -41,7 +41,7 @@
         end
 
         % display epipolar line %
-        plot3( [ 0, sc_t(1) ], [ 0, sc_t(2) ], [ 0, sc_t(3) ], '-r', 'color', [ 255 187 61 ] / 255, 'linewidth', 2 );
+        plot3( [ 0, sc_t(1) ], [ 0, sc_t(2) ], [ 0, sc_t(3) ], '-', 'color', [ 36 131 255 ] / 255, 'linewidth', 2 );
 
         % display camera center %
         plot3( 0, 0, 0, 'o', 'color', [ 36 131 255 ] / 255 );

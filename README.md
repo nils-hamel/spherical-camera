@@ -64,7 +64,7 @@ To estimate the pose between the two captures, the algorithm uses an iterative a
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-1b.jpg?raw=true" width="384">
 <br />
-<i>Last algorithm iteration state on theoretical cases. The yellow line gives the vector between the two camera center while the grey lines link the camera center to the estimated position of matched features - Images : Nils Hamel</i>
+<i>Last algorithm iteration state on theoretical cases. The blue line gives the vector between the two camera center while the grey lines link the camera center to the estimated position of matched features - Images : Nils Hamel</i>
 </p>
 <br />
 
