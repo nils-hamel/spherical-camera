@@ -1,4 +1,22 @@
 
+    %  spherical-camera
+    %
+    %      Nils Hamel - nils.hamel@bluewin.ch
+    %      Copyright (c) 2016-2018 DHLAB, EPFL
+    %
+    %  This program is free software: you can redistribute it and/or modify
+    %  it under the terms of the GNU General Public License as published by
+    %  the Free Software Foundation, either version 3 of the License, or
+    %  (at your option) any later version.
+    %
+    %  This program is distributed in the hope that it will be useful,
+    %  but WITHOUT ANY WARRANTY; without even the implied warranty of
+    %  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    %  GNU General Public License for more details.
+    %
+    %  You should have received a copy of the GNU General Public License
+    %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
     function algorithm_test_noise( sc_count, sc_amount, sc_output )
 
         % compose noise amplitude array %
@@ -21,10 +39,6 @@
 
             % measures loop %
             for sc_measure = 1 : sc_amount
-
-                iter = 1;
-
-                while ( iter == 1 )
 
                 % create scene %
                 sc_scene = algorithm_scene( zeros(1,3), 10, sc_count, false );
@@ -50,10 +64,6 @@
 
                 % compute camera pose %
                 [ sc_r, sc_t, sc_ra, sc_rb, sc_err_rad, sc_err_r, sc_err_t ] = algorithm_pose( sc_camad, sc_cambd, 1e-8 );
-
-                if (length( sc_err_rad ) < 200 ); iter = 0; end
-
-                end
 
                 % iteration count %
                 sc_iter = length( sc_err_rad );
