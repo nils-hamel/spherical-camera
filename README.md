@@ -92,7 +92,7 @@ The following plots show the ability of the pose estimation algorithm to resist 
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-3b.jpg?raw=true" width="384">
 <br />
-<i>Error evolution according to noise on rotation (left) and tranlsation (right) - Images : Nils Hamel</i>
+<i>Error evolution according to noise amplitude on rotation (left) and tranlsation (right) - Images : Nils Hamel</i>
 </p>
 <br />
 
