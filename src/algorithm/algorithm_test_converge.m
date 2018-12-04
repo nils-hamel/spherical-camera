@@ -35,7 +35,7 @@
         sc_cambd = algorithm_project( sc_cambc, sc_cambr, sc_scene );
 
         % compute camera pose %
-        [ sc_r, sc_t, sc_ra, sc_rb, sc_err_rad, sc_err_r, sc_err_t ] = algorithm_pose( sc_camad, sc_cambd, 1e-8 );
+        [ sc_r, sc_t, sc_ra, sc_rb, sc_da, sc_db, sc_err_rad, sc_err_r, sc_err_t ] = algorithm_pose( sc_camad, sc_cambd, 1e-8 );
 
         % iteration count %
         sc_iter = length( sc_err_rad );
@@ -71,7 +71,7 @@
             sc_err_rot( sc_i ) = norm( sc_err_r{sc_i} * sc_r_' - eye(3) , 'fro' );
 
             % compute error on translation %
-            sc_err_tra( sc_i ) = 1 - abs( dot( ( sc_err_t{sc_i} / norm( sc_err_t{sc_i} ) ), ( sc_t_ / norm( sc_t_ ) ) ) );
+            sc_err_tra( sc_i ) = abs( 1 - abs( dot( ( sc_err_t{sc_i} / norm( sc_err_t{sc_i} ) ), ( sc_t_ / norm( sc_t_ ) ) ) ) );
 
         end
 
@@ -97,3 +97,4 @@
         print( '-dpng', '-r300', [ sc_output '/pose-error.png' ] );
 
     end
+

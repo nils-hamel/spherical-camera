@@ -63,7 +63,7 @@
                 sc_cambd = algorithm_project( sc_cambc, sc_cambr, sc_scene_nb );
 
                 % compute camera pose %
-                [ sc_r, sc_t, sc_ra, sc_rb, sc_err_rad, sc_err_r, sc_err_t ] = algorithm_pose( sc_camad, sc_cambd, 1e-8 );
+                [ sc_r, sc_t, sc_ra, sc_rb, sc_da, sc_db, sc_err_rad, sc_err_r, sc_err_t ] = algorithm_pose( sc_camad, sc_cambd, 1e-8 );
 
                 % iteration count %
                 sc_iter = length( sc_err_rad );

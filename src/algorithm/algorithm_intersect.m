@@ -47,7 +47,7 @@
     % @return sc_ra Computed radius for the first camera
     % @return sc_rb Computed radius for the second camera
 
-    function [ sc_ra, sc_rb ] = algorithm_intersect_2( sc_ca, sc_da, sc_cb, sc_db )
+    function [ sc_ra, sc_rb ] = algorithm_intersect( sc_ca, sc_da, sc_cb, sc_db )
 
         % compute temporary vector %
         sc_ab = sc_cb - sc_ca;

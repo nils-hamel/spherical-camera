@@ -17,7 +17,7 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    function [ sc_r, sc_t, sc_ra, sc_rb, sc_err_rad, sc_err_r, sc_err_t ] = algorithm_pose( sc_da, sc_db, sc_tol )
+    function [ sc_r, sc_t, sc_ra, sc_rb, sc_da, sc_db, sc_err_rad, sc_err_r, sc_err_t ] = algorithm_pose( sc_da, sc_db, sc_tol )
 
         % initialise radii %
         sc_ra = ones( size( sc_da, 1 ), 1 );
@@ -67,8 +67,11 @@
 
             end
 
+            % filtering process - stability %
+            [ sc_ra, sc_rb, sc_da, sc_db ] = algorithm_filter( sc_ra, sc_da, sc_rb, sc_db, 3.0 );
+
             % display information %
-            fprintf( 2, 'Iteration %i with %g remaining\n', sc_iter, sc_icc );
+            fprintf( 2, 'Iteration %i with %g remaining and %d features\n', sc_iter, sc_icc, size( sc_ra, 1 ) );
 
             % index error on radius %
             sc_err_rad( sc_iter ) = sc_icc;
@@ -91,3 +94,4 @@
         sc_t = sc_rt;
 
     end
+

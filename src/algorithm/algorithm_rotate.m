@@ -26,7 +26,7 @@
         for sc_i = 1 : size( sc_point, 1 )
 
             % apply rotation %
-            sc_rotate(sc_i,:) = sc_r * sc_point(sc_i,:)';
+            sc_rotate(sc_i,:) = ( sc_r * sc_point(sc_i,:)' )';
 
         end
 

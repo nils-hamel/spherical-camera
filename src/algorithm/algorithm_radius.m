@@ -27,7 +27,7 @@
         for sc_i = 1 : size( sc_da, 1 )
 
             % compute radius correction %
-            [ sc_ra(sc_i), sc_rb(sc_i) ] = algorithm_intersect_2( sc_ca, sc_da(sc_i,:), sc_cb, sc_db(sc_i,:) );
+            [ sc_ra(sc_i), sc_rb(sc_i) ] = algorithm_intersect( sc_ca, sc_da(sc_i,:), sc_cb, sc_db(sc_i,:) );
 
         end
 

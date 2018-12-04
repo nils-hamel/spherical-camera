@@ -25,7 +25,7 @@
         % compute last iteration features %
         sc_fa = algorithm_features( sc_ra, sc_da );
 
-        % tranform center %
+        % transform center %
         sc_fa(:,1) = sc_fa(:,1) + sc_t(1);
         sc_fa(:,2) = sc_fa(:,2) + sc_t(2);
         sc_fa(:,3) = sc_fa(:,3) + sc_t(3);
@@ -72,9 +72,10 @@
         ylabel( 'y' );
         zlabel( 'z' );
 
+        % axis configuration %
         axis( 'equal' );
 
-        % ratio configuration %
+        % axis ratio configuration %
         daspect( [ 1 1 1 ] );
 
         % view configuration %
