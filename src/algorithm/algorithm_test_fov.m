@@ -17,7 +17,7 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    function algorithm_test_fov( sc_count, sc_amount, sc_output )
+    function algorithm_test_fov( sc_count, sc_measure, sc_amount, sc_output )
 
         % radius of the scene %
         sc_radius = 10.0;
@@ -26,13 +26,13 @@
         sc_scene = algorithm_scene( zeros(1,3), sc_radius, sc_count, false );
 
         % create camera positions %
-        sc_position = logspace( 0, log( sc_radius * 5.0 ) / log( 10.0 ), 16 );
+        sc_position = logspace( log( sc_radius * 0.5 ) / log( 10 ), log( sc_radius * 5.0 ) / log( 10.0 ), sc_measure );
 
         % compute corresponding angles %
         sc_angle = algorithm_test_fov_angle( sc_position, sc_radius, 0.01 ) * ( 180.0 / pi );
 
         % parsing positions %
-        for sc_i = 1 : length( sc_position )
+        for sc_i = 1 : sc_measure
 
             % reset accumulation arrays %
             sc_acc_r = [];
@@ -111,12 +111,24 @@
         % display error mean %
         plot( sc_angle, sc_r_mean, '-', 'linewidth', 2, 'Color', [ 255 187 61 ] / 255 );
 
+        % retrieve limit %
+        sc_yl = ylim;
+
+        % display indication : 36x24mm 35mm -> 63.4° %
+        plot( 63.4 * ones(2,1), sc_yl, '-', 'linewidth', 2, 'Color', [ 36 131 255 ] / 255 );
+
+        % display indication : 36x24mm 24mm -> 84.1° %
+        plot( 84.1 * ones(2,1), sc_yl, '-', 'linewidth', 2, 'Color', [ 0 78 178 ] / 255 );
+
+        % display indication : 180° %
+        plot( 180. * ones(2,1), sc_yl, '-', 'linewidth', 2, 'Color', [ 0.7 0.7 0.7 ] );
+
         % axis label %
         xlabel( 'Angles [°]' );
         ylabel( 'Rotation error' );
 
         % axis configuration %
-        xlim( [ 0 360 ] );
+        axis( [ 0, 360, sc_yl ] );
 
         % export figure %
         print( '-dpng', '-r300', [ sc_output '/field-rotation.png' ] );
@@ -139,12 +151,24 @@
         % display error mean %
         plot( sc_angle, sc_t_mean, '-', 'linewidth', 2, 'Color', [ 255 187 61 ] / 255 );
 
+        % retrieve limit %
+        sc_yl = ylim;
+
+        % display indication : 36x24mm 35mm -> 63.4° %
+        plot( 63.4 * ones(2,1), sc_yl, '-', 'linewidth', 2, 'Color', [ 36 131 255 ] / 255 );
+
+        % display indication : 36x24mm 24mm -> 84.1° %
+        plot( 84.1 * ones(2,1), sc_yl, '-', 'linewidth', 2, 'Color', [ 0 78 178 ] / 255 );
+
+        % display indication : 180° %
+        plot( 180. * ones(2,1), sc_yl, '-', 'linewidth', 2, 'Color', [ 0.7 0.7 0.7 ] );
+
         % axis label %
         xlabel( 'Angles [°]' );
         ylabel( 'Translation error' );
 
         % axis configuration %
-        xlim( [ 0 360 ] );
+        axis( [ 0, 360, sc_yl ] );
 
         % export figure %
         print( '-dpng', '-r300', [ sc_output '/field-translation.png' ] );
