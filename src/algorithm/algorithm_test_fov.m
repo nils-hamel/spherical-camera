@@ -124,7 +124,7 @@
         plot( 180. * ones(2,1), sc_yl, '-', 'linewidth', 2, 'Color', [ 0.7 0.7 0.7 ] );
 
         % axis label %
-        xlabel( 'Angles [°]' );
+        xlabel( 'Angles [Degrees]' );
         ylabel( 'Rotation error' );
 
         % axis configuration %
@@ -164,7 +164,7 @@
         plot( 180. * ones(2,1), sc_yl, '-', 'linewidth', 2, 'Color', [ 0.7 0.7 0.7 ] );
 
         % axis label %
-        xlabel( 'Angles [°]' );
+        xlabel( 'Angles [Degrees]' );
         ylabel( 'Translation error' );
 
         % axis configuration %
