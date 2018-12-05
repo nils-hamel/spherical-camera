@@ -112,7 +112,7 @@
         set( sc_a(2), 'FaceColor', [ 255 202 103 ] / 255 );
 
         % display mean plot %
-        plot( sc_noise, sc_rot(:,1), '-r', 'linewidth', 2, 'Color', [ 255 187 61 ] / 255 );
+        plot( sc_noise, sc_rot(:,1), '-', 'linewidth', 2, 'Color', [ 255 187 61 ] / 255 );
 
         % axis label %
         xlabel( '| T | factor' );
@@ -137,7 +137,7 @@
         set( sc_a(2), 'FaceColor', [ 255 202 103 ] / 255 );
 
         % display mean plot %
-        plot( sc_noise, sc_tra(:,1), '-r', 'linewidth', 2, 'Color', [ 255 187 61 ] / 255 );
+        plot( sc_noise, sc_tra(:,1), '-', 'linewidth', 2, 'Color', [ 255 187 61 ] / 255 );
 
         % axis label %
         xlabel( '| T | factor' );

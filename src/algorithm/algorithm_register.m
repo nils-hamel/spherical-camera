@@ -67,6 +67,9 @@
             % inversion correction %
             sc_v(:,3) = -sc_v(:,3); sc_r = sc_v * sc_u';
 
+            % compute translation vector %
+            sc_t = sc_d' - sc_r * sc_c';
+
             % display warning %
             warning( 'inversion detected' );
 

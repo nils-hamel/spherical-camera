@@ -100,7 +100,7 @@ This clearly shows that the algorithm is robust in case on strongly noised data 
 
 
 
-## ScanVan Project Teams
+## ScanVan Teams
 
 The _ScanVan_ FNS project (PNR 76 _Big Data_, 167151) was won and conducted by the _DHLAB_ of EFPL and the _Institut des Systèmes Industriels_ of the HES-SO Valais with the following teams :
 
