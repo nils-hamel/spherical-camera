@@ -8,7 +8,7 @@ In this context, a spherical camera was designed along with a pose estimation al
 
 ## Spherical Camera
 
-The design of the proposed camera is made to address the problem of narrow fields of views of traditional camera in the context of structure from motion and 3D models computation. The design allows the camera to see everything within a single shot. This allows to consider wider distribution of features leading to more stable and robust pose estimation. It then allows to reduce the complexity of image acquisition, as everything is viewed on each camera capture. The proposed camera design brings researches on paraboloid [1] and hyperboloid [2] cameras a step forward allowing central four _pi_ field of view capability.
+The design of the proposed camera is made to address the problem of narrow fields of views of traditional cameras in the context of structure from motion and 3D models computation. The design allows the camera to see everything within a single shot. This allows to consider wider distribution of features leading to more stable and robust pose estimation. It then allows to reduce the complexity of image acquisition, as everything is viewed on each camera capture. The proposed camera design brings researches on paraboloid [1] and hyperboloid [2] cameras a step forward allowing four _pi_ field of view capability.
 
 In addition to the field of view, the design of the proposed camera also ensures that all the collected light is focused on a single and common focal point. This property is crucial from the structure from motion point of view, as it allows to consider simple and robust algorithms for pose estimation.
 
@@ -20,13 +20,13 @@ The camera is based on a central two-sided hyperbolic mirror allowing to ensure 
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-1b.jpg?raw=true" width="384">
 <br />
-<i>Examples of camera designs obtained using different sets of parameters - Images : Nils Hamel</i>
+<i>Examples of spherical camera designs obtained using different sets of parameters. The mirror is represented in gray as the two side sensors that capture the reflected light shown in orange - Images : Nils Hamel</i>
 </p>
 <br />
 
 Changing the parameter allows to modulate the size of the mirror, its thickness, the distance of the sensors to the mirror center and the size of the sensor themselves.
 
-Indeed, the proposed design is theoretical and ideal. The light reflected by the principal mirror can not be collected by a sensor directly. The sensors can be replaced by standard small cameras to produce the camera captures. This solution was adopted in collaboration with the HES-SO Valais to produce a first prototype of the camera based on the proposed design. The following image gives a view of the built prototype :
+The proposed design is theoretical and ideal. Indeed, the light reflected by the principal mirror can not be collected by a sensor directly. The sensors can then be replaced by standard small cameras to produce the image captures. This solution was adopted in collaboration with the HES-SO Valais to produce a first prototype of the spherical camera based on the proposed design. The following images give a view of the built prototype :
 
 <br />
 <p align="center">
@@ -34,11 +34,11 @@ Indeed, the proposed design is theoretical and ideal. The light reflected by the
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-2b.jpg?raw=true" width="384">
 <br />
-<i>Spherical camera prototype made by Charles Papon & Marcelo Kaihara, HES-SO Valais - Images : Marcelo Kaihara</i>
+<i>Spherical camera prototype built by Charles Papon & Marcelo Kaihara (HES-SO Valais) - Images : Marcelo Kaihara</i>
 </p>
 <br />
 
-As the sensors are replaced by traditional cameras, the device has to be calibrated in order to obtain the desired ideal images. The calibration procedure proposed in [3] is considered for the _scanvan_ project prototype. The following image gives an example of the obtained capture using the built prototype :
+As the sensors are replaced by traditional cameras, the device has to be calibrated in order to obtain the desired ideal images. The calibration procedure proposed in [3] is considered for the _scanvan_ project prototype. The following image gives an example of the obtained capture using the calibrated prototype :
 
 <br />
 <p align="center">
@@ -48,7 +48,7 @@ As the sensors are replaced by traditional cameras, the device has to be calibra
 </p>
 <br />
 
-Of course, the design of the mirror and the mounting system of the two standard cameras used to capture the mirror reflection induce reduction of the four _pi_ field of view. Nevertheless, this prototype is able to considerably increase the field of view according to standard cameras and other omnidirectional devices. In addition, the presented image offers a perfect four _pi_ images without any parallax effects.
+Of course, the manufacture of the mirror and the mounting elements for the two side cameras used to capture the mirror reflected light induce reduction of the four _pi_ field of view. Nevertheless, this prototype is able to considerably increase the field of view according to standard cameras and other omnidirectional devices, toward robust structure from motion pipelines. As a last element, the images captured by the camera produce _perfect_ four _pi_ panoramas without parallax effects within single shots.
 
 ## Spherical Algorithm
 
