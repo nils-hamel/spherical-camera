@@ -17,6 +17,26 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @brief Line intersection error measure
+    %
+    % This function computes the remaining distance between the estimated
+    % position of the matched features. As each camera places its own features
+    % their position can be compared between the two considered camera.
+    %
+    % The euclidean norm between the estimated position of a pair of matched
+    % features positions is considered as error measure. The function computes
+    % it for each matched feature and the largest one is returned by the
+    % function.
+    %
+    % @param sc_ca First camera center
+    % @param sc_da First camera line direction
+    % @param sc_ra First camera radius
+    % @param sc_cb Second camera center
+    % @param sc_db Second camera line direction
+    % @param sc_rb Second camera radius
+    %
+    % @return sc_error Largest error on features position
+
     function sc_error = algorithm_error( sc_ca, sc_da, sc_ra, sc_cb, sc_db, sc_rb )
 
         % compute point set %
