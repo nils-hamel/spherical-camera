@@ -20,30 +20,30 @@
     % @brief Test function : field of view
     %
     % This function implements an analysis of the behaviour of the rotation and
-    % translation estimation precision according to the field of view of the
+    % translation estimation precision according to the angle of view of the
     % camera.
     %
-    % The experiments consist in two cameras place in opposition with the scene
-    % feature in a sphere at the center. The cameras are moved from far away to
-    % the center of the scene sphere. As the camera are far away, the angle of
+    % The experiments consist in two cameras placed in opposition with the scene
+    % features in a sphere at the center. The cameras are moved from far away to
+    % the center of the scene sphere. As the cameras are far away, the angle of
     % view with which the scene is seen is very narrow. As the cameras are
     % getting closer, the view angle increase until the cameras enter the scene
-    % sphere.
+    % sphere toward its center.
     %
-    % The angle of view is then identified to the camera distance to the center
-    % of the sphere : formally as the cameras are outside of the scene sphere
-    % and more statistically as the cameras are inside.
+    % The angle of view is then identified to the cameras distance to the center
+    % of the scene sphere : formally as the cameras are outside of the scene
+    % sphere and more statistically as the cameras are inside.
     %
-    % For each camera position, 'sc_amount' are performed to obtain a mean and
-    % standard deviation on the pose estimation error.
+    % For each camera position, 'sc_amount' estimation are performed to obtain a
+    % mean and standard deviation on the error.
     %
     % The function creates and exports two plots showing the evolution of the
-    % error mean and the standard deviation according to the field of view for
+    % error mean and the standard deviation according to the angle of view for
     % both rotation and translation.
     %
     % @param sc_count   Number of features to consider
-    % @param sc_measure Number of angle of view to analyse
-    % @param sc_amount  Number of measure for each angle of view
+    % @param sc_measure Number of angles of view to analyse
+    % @param sc_amount  Number of measures for each angle of view
     % @param sc_output  Plots exportation path
 
     function algorithm_test_fov( sc_count, sc_measure, sc_amount, sc_output )
@@ -203,6 +203,25 @@
         print( '-dpng', '-r300', [ sc_output '/field-translation.png' ] );
 
     end
+
+    % @brief Angle according to camera distance to scene center
+    %
+    % This function gives an estimation of the angle of view of the camera
+    % according to its distance to the center of the scene sphere.
+    %
+    % As the camera is outside of the scene sphere, the angle of view is easy
+    % to determine.
+    %
+    % As the camera is inside the scene sphere, a statistical model is applied
+    % to deduce an value for the angle of view. The angle is deduced from the
+    % aperture of the camera rear cone to remove to obtain a probability of
+    % one minus 'sc_gamma' to find a scene point in the rest of the scene.
+    %
+    % @param sc_d      Camera distances
+    % @param sc_r      Scene sphere radius
+    % @param sc_gamma  Probability value
+    %
+    % @return sc_angle Angles according to distances
 
     function sc_angle = algorithm_test_fov_angle( sc_d, sc_r, sc_gamma )
 

@@ -22,8 +22,8 @@
     % This function allows to compute the position of the features of a camera
     % in its own frame.
     %
-    % The function simply applies the provided radius value to the unitary
-    % direction vectors.
+    % The function simply applies the provided radius values their respective
+    % unitary direction vectors.
     %
     % @param sc_r Camera features radii
     % @param sc_d Camera features directions unitary vector

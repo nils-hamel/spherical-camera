@@ -19,15 +19,15 @@
 
     % @brief Scene point projection on camera
     %
-    % This function creates a camera features direction unitary vectors array
-    % by projecting the provided scene points on the unit sphere corresponding
+    % This function creates a camera features direction unitary vector array by
+    % projecting the provided scene points on the unit sphere corresponding
     % to the camera, taking into account its position and rotation.
     %
     % @param sc_center     Camera center position
     % @param sc_rotation   Camera rotation matrix
     % @param sc_scene      Scene points position
     %
-    % @return sc_direction Computed camera features direction unitary vectors
+    % @return sc_direction Computed camera features direction unitary vector
 
     function sc_direction = algorithm_project( sc_center, sc_rotation, sc_scene )
 

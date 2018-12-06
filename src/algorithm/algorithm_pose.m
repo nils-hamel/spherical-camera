@@ -20,28 +20,30 @@
     % @brief Pose estimation
     %
     % This function estimates the rotation and translation between two cameras
-    % based on the provided features projections.
+    % based on the provided features projections (unitary directions vector).
     %
-    % One iteration starts by computing a first estimation of the rotation and
-    % translation that occurs between the two point set defined by the two
+    % An iterations starts by computing a first estimation of the rotation and
+    % translation that occurs between the two point sets defined by the two
     % camera features. In the first iteration, the features defines 3D models
     % that are collapsed on the unit sphere (the projection of the features
     % having discarded the depth information). On the basis of this first pose
     % estimation, the algorithm corrects the position of the features by
-    % computing their best intersection. The next iteration then starts with
-    % two points sets that should be a bit close to the real scene.
+    % computing their best intersections. The next iteration then starts with
+    % two points sets that should be a bit close to the real scene, allowing to
+    % get a better estimation of rotation and translation.
     %
     % At each iteration, the error on features position (the distance that
     % separates their position according to the first and second cameras) is
     % computed and used as a stop condition. The iteration stops as this error
-    % stops changing of more than the provided tolerance value.
+    % stops moving of more than the provided tolerance value.
     %
-    % A features filtering process is made also at each iteration to be sure
-    % that no outlier appears in the sets of features.
+    % A features filtering process is also made at each iteration to be sure
+    % that no outlier appears in the sets of features. Such outliers can lead
+    % to instabilities that conduct the pose estimation to fail.
     %
     % @param  sc_da      First camera features directions unitary vector
     % @param  sc_db      Second camera features directions unitary vector
-    % @param  sc_tol     Iteration stop condition
+    % @param  sc_tol     Iteration stop condition (tolerance)
     %
     % @return sc_r       Estimated rotation matrix
     % @return sc_t       Estimated translation vector
@@ -49,9 +51,9 @@
     % @return sc_rb      Second camera last iteration features radii
     % @return sc_da      First camera last iteration features directions
     % @return sc_db      Second camera last iteration features directions
-    % @return sc_err_rad Maximum features error array (for all iteration)
-    % @return sc_err_r   Estimated rotation matrix (for all iteration)
-    % @return sc_err_r   Estimated translation vector (for all iteration)
+    % @return sc_err_rad Maximum features error array (for all iterations)
+    % @return sc_err_r   Estimated rotation matrix (for all iterations)
+    % @return sc_err_r   Estimated translation vector (for all iterations)
 
     function [ sc_r, sc_t, sc_ra, sc_rb, sc_da, sc_db, sc_err_rad, sc_err_r, sc_err_t ] = algorithm_pose( sc_da, sc_db, sc_tol )
 

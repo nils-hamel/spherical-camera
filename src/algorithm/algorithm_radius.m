@@ -19,10 +19,10 @@
 
     % @biref Cameras radii correction
     %
-    % This function considers the provided features direction unitary vector and
-    % camera centers to compute their respective best intersections in the 3D
-    % space. The intersection is then used to correct the values of the radii to
-    % make them corresponds to this optimal intersection through an orthogonal
+    % This function considers the provided features direction unitary vectors
+    % and camera centers to compute their respective best intersections in the
+    % 3D space. The intersection is then used to correct the values of the radii
+    % to make them corresponds to this optimal intersection through an orthogonal
     % projection.
     %
     % The cameras radii and directions are expected to be expressed in the frame
@@ -30,9 +30,9 @@
     % and translation vector between the camera.
     %
     % @param sc_ca First camera position
-    % @param sc_da First camera features direction unitary vectors
+    % @param sc_da First camera features direction unitary vector
     % @param sc_ca Second camera position
-    % @param sc_da Second camera features direction unitary vectors
+    % @param sc_da Second camera features direction unitary vector
     %
     % @param sc_ra First camera corrected radii
     % @param sc_rb Second camera corrected radii

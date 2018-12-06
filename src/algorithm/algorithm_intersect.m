@@ -25,9 +25,10 @@
     % the third the center of the second camera while the last parameter gives
     % the direction vector of the second line.
     %
-    % The function expects both line parameter to be expressed in the same frame,
-    % that is either : the first line expressed in the frame of the second
-    % camera or the second line expressed in the frame of the first camera.
+    % The function expects both line parameters to be expressed in the same
+    % frame, that is either : the first line expressed in the frame of the
+    % second camera or the second line expressed in the frame of the first
+    % camera.
     %
     % The best intersection is here understood as the middle point of the
     % orthogonal segment joining the two line (which is unique).

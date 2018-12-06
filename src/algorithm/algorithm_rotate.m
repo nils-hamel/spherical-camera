@@ -20,7 +20,7 @@
     % @brief Rotation application
     %
     % This function simply applies the provided rotation matrix on the set of
-    % points also provided.
+    % points also provided as parameter.
     %
     % @param sc_point Points set
     % @param sc_r     Rotation matrix

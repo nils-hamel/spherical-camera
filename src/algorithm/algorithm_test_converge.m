@@ -20,11 +20,11 @@
     % @brief Test function : error convergence
     %
     % This function allows to analyse and plot the behaviour of the rotation and
-    % translation error along with the pose estimation algorithm iteration.
+    % translation error along with the pose estimation algorithm iterations.
     %
-    % The function sets a random scene and two random camera position and
-    % rotation before to apply the pose estimation algorithm on it. The true
-    % rotation and translation being known, the error can be computed and plot.
+    % The function sets a random scene, two random camera positions and rotations
+    % before to apply the pose estimation algorithm on it. The true rotation
+    % and translation being known, the error can be computed and plot.
     %
     % Two plots are created by the function : the first plot shows how the
     % maximum separation of estimated features positions evolve across the

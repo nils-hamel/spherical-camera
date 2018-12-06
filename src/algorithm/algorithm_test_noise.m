@@ -29,7 +29,7 @@
     % pose estimation are made to determine each time the error mean and
     % standard deviation.
     %
-    % The function creates to plots showing the error mean and standard
+    % The function creates two plots showing the error mean and standard
     % deviation according to the noise amplitude : the first one for the error
     % on rotation and the second for the error on translation.
     %

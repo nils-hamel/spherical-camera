@@ -19,9 +19,9 @@
 
     % @brief Random spherical scene
     %
-    % This function allows to generate and random set of point homogeneously
+    % This function allows to generate and random set of points homogeneously
     % distributed in a sphere or on a sphere using the provided center and
-    % radius.
+    % radius values.
     %
     % If the provided 'hollow' parameter is set to false, the random points are
     % distributed in the sphere volume. If 'true' is provided, the points are
@@ -29,7 +29,7 @@
     %
     % @param sc_center Scene sphere center
     % @param sc_radius Scene sphere radius
-    % @param sc_number Number of point to generate
+    % @param sc_number Number of points to generate
     % @param sc_hollow Scene sphere hollow condition
     %
     % @return sc_scene Computed random scene.

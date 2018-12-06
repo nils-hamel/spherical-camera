@@ -19,29 +19,29 @@
 
     % @brief Camera features filtering
     %
-    % This function considers two camera sets of features, through their radii
-    % value and performs a statistical analysis on them. the goal is to detect
+    % This function considers two camera sets of features, through their radius
+    % values and performs a statistical analysis on them. the goal is to detect
     % if one or more features can be considered as outliers, leading to pose
     % estimation instabilities. Such features are eliminated by the function.
     %
-    % The function performs a statistical analysis on the radii of both camera
+    % The function performs a statistical analysis on the radii of both cameras
     % and removes features that are 'sc_tolerance' times the standard deviation
     % away from the mean value. To be kept, a features has to be in the range
-    % for both camera.
+    % for both cameras.
     %
     % The features direction arrays have to be provided in order to remove the
     % vectors that correspond to a removed feature.
     %
     % @param sc_ra        First camera radii
-    % @param sc_da        First camera direction unitary vectors
+    % @param sc_da        First camera features direction unitary vectors
     % @param sc_rb        Second camera radii
-    % @param sc_db        Second camera direction unitary vectors
+    % @param sc_db        Second camera features direction unitary vectors
     % @param sc_tolerance Standard deviation filtering factor
     %
     % @return sc_ra_      First camera filtered radii
     % @return sc_rb_      Second camera filtered radii
-    % @return sc_da_      First camera filtered direction unitary vectors
-    % @return sc_db_      Second camera filtered direction unitary vectors
+    % @return sc_da_      First camera filtered features direction unitary vectors
+    % @return sc_db_      Second camera filtered features direction unitary vectors
 
     function [ sc_ra_, sc_rb_, sc_da_, sc_db_ ] = algorithm_filter( sc_ra, sc_da, sc_rb, sc_db, sc_tolerance )
 
