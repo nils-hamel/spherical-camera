@@ -17,7 +17,7 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    % @brief Point set registration
+    % @brief Point sets registration
     %
     % This function estimates the best rotation and translation that matches
     % the two provided sets of 3D points, assuming their structural identity.

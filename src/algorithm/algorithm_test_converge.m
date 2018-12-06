@@ -17,6 +17,23 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @brief Test function : error convergence
+    %
+    % This function allows to analyse and plot the behaviour of the rotation and
+    % translation error along with the pose estimation algorithm iteration.
+    %
+    % The function sets a random scene and two random camera position and
+    % rotation before to apply the pose estimation algorithm on it. The true
+    % rotation and translation being known, the error can be computed and plot.
+    %
+    % Two plots are created by the function : the first plot shows how the
+    % maximum separation of estimated features positions evolve across the
+    % iterations. The second plot shows how the rotation and translation error
+    % behave along the algorithm iterations.
+    %
+    % @param sc_count  Number of scene points to consider
+    % @param sc_output Plots exportation path
+
     function algorithm_test_converge( sc_count, sc_output )
 
         % create scene %

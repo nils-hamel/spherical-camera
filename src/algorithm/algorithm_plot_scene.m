@@ -17,6 +17,26 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @brief Pose estimation iteration rendering
+    %
+    % This function allows to create and export a representation of the state
+    % of the pose estimation iteration state.
+    %
+    % It displays the two camera center along with their respective features
+    % direction and positions. The representation is made considering the
+    % second camera frame.
+    %
+    % The created plot is exported using the provided portable network graphic
+    % path.
+    %
+    % @param sc_da     First camera features direction unitary vectors
+    % @param sc_ra     First camera features radii
+    % @param sc_db     Second camera features direction unitary vectors
+    % @param sc_rb     Second camera features radii
+    % @param sc_r      Estimated rotation matrix
+    % @param sc_t      Estimated translation vector
+    % @param sc_output Created plot exportation path
+
     function algorithm_plot_scene( sc_da, sc_ra, sc_db, sc_rb, sc_r, sc_t, sc_output )
 
         % transform direction %

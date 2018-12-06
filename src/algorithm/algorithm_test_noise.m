@@ -17,6 +17,26 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @brief Test function : noise resistance
+    %
+    % This function allows to determine how the precision of the estimated
+    % rotation and translation behave as noise is added to the projection of
+    % the features on the two considered cameras.
+    %
+    % The amplitude of the noise is modulated from zero to two times the size
+    % of the translation between the two randomly placed cameras. A random
+    % scene is considered each time. For each noise amplitude, 'sc_amount' of
+    % pose estimation are made to determine each time the error mean and
+    % standard deviation.
+    %
+    % The function creates to plots showing the error mean and standard
+    % deviation according to the noise amplitude : the first one for the error
+    % on rotation and the second for the error on translation.
+    %
+    % @param sc_count  Number of features to consider
+    % @param sc_amount Number of measures for each noise amplitude
+    % @param sc_output Plots exportation path
+
     function algorithm_test_noise( sc_count, sc_amount, sc_output )
 
         % compose noise amplitude array %

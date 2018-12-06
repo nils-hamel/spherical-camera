@@ -17,6 +17,16 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @brief Rotation application
+    %
+    % This function simply applies the provided rotation matrix on the set of
+    % points also provided.
+    %
+    % @param sc_point Points set
+    % @param sc_r     Rotation matrix
+    %
+    % @return sc_rotate Rotated points set
+
     function sc_rotate = algorithm_rotate( sc_point, sc_r )
 
         % initialise memory %

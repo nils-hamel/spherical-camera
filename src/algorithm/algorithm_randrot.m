@@ -17,6 +17,12 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @brief Random rotation matrix computation
+    %
+    % This function computes and returns a random rotation matrix.
+    %
+    % @return sc_rotation Computed random rotation matrix.
+
     function sc_rotation = algorithm_randrot()
 
         % compute random rotation matrix %

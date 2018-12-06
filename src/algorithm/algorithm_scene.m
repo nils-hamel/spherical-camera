@@ -17,6 +17,23 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @brief Random spherical scene
+    %
+    % This function allows to generate and random set of point homogeneously
+    % distributed in a sphere or on a sphere using the provided center and
+    % radius.
+    %
+    % If the provided 'hollow' parameter is set to false, the random points are
+    % distributed in the sphere volume. If 'true' is provided, the points are
+    % distributed on the surface of the sphere.
+    %
+    % @param sc_center Scene sphere center
+    % @param sc_radius Scene sphere radius
+    % @param sc_number Number of point to generate
+    % @param sc_hollow Scene sphere hollow condition
+    %
+    % @return sc_scene Computed random scene.
+
     function sc_scene = algorithm_scene( sc_center, sc_radius, sc_number, sc_hollow )
 
         % memory management %

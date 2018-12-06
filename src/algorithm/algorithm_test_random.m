@@ -17,6 +17,15 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @breif Test function : random estimation
+    %
+    % This function allows to set a random scene and camera position/orientation
+    % and to compute the pose estimation. The results are display on terminal
+    % and a plot of the last iteration is created and exported.
+    %
+    % @param sc_count  Number of features to consider
+    % @param sc_output Plot exportation path
+
     function algorithm_test_random( sc_count, sc_output )
 
         % create scene %

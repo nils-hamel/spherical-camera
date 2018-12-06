@@ -17,15 +17,41 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    function [ sc_ra_, sc_rb_, sc_da_, sc_db_ ] = algorithm_filter( sc_ra, sc_da, sc_rb, sc_db, sc_tolerence )
+    % @brief Camera features filtering
+    %
+    % This function considers two camera sets of features, through their radii
+    % value and performs a statistical analysis on them. the goal is to detect
+    % if one or more features can be considered as outliers, leading to pose
+    % estimation instabilities. Such features are eliminated by the function.
+    %
+    % The function performs a statistical analysis on the radii of both camera
+    % and removes features that are 'sc_tolerance' times the standard deviation
+    % away from the mean value. To be kept, a features has to be in the range
+    % for both camera.
+    %
+    % The features direction arrays have to be provided in order to remove the
+    % vectors that correspond to a removed feature.
+    %
+    % @param sc_ra        First camera radii
+    % @param sc_da        First camera direction unitary vectors
+    % @param sc_rb        Second camera radii
+    % @param sc_db        Second camera direction unitary vectors
+    % @param sc_tolerance Standard deviation filtering factor
+    %
+    % @return sc_ra_      First camera filtered radii
+    % @return sc_rb_      Second camera filtered radii
+    % @return sc_da_      First camera filtered direction unitary vectors
+    % @return sc_db_      Second camera filtered direction unitary vectors
+
+    function [ sc_ra_, sc_rb_, sc_da_, sc_db_ ] = algorithm_filter( sc_ra, sc_da, sc_rb, sc_db, sc_tolerance )
 
         % compute mean values %
         sc_ma = mean( sc_ra );
         sc_mb = mean( sc_rb );
 
         % compute standard deviation %
-        sc_sa = std( sc_ra ) * sc_tolerence;
-        sc_sb = std( sc_rb ) * sc_tolerence;
+        sc_sa = std( sc_ra ) * sc_tolerance;
+        sc_sb = std( sc_rb ) * sc_tolerance;
 
         % initialise filtering index %
         sc_j = 0;

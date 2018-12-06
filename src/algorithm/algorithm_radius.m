@@ -17,6 +17,26 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @biref Cameras radii correction
+    %
+    % This function considers the provided features direction unitary vector and
+    % camera centers to compute their respective best intersections in the 3D
+    % space. The intersection is then used to correct the values of the radii to
+    % make them corresponds to this optimal intersection through an orthogonal
+    % projection.
+    %
+    % The cameras radii and directions are expected to be expressed in the frame
+    % of one of the camera, taking into account the estimated rotation matrix
+    % and translation vector between the camera.
+    %
+    % @param sc_ca First camera position
+    % @param sc_da First camera features direction unitary vectors
+    % @param sc_ca Second camera position
+    % @param sc_da Second camera features direction unitary vectors
+    %
+    % @param sc_ra First camera corrected radii
+    % @param sc_rb Second camera corrected radii
+
     function [ sc_ra, sc_rb ] = algorithm_radius( sc_ca, sc_da, sc_cb, sc_db )
 
         % initialise memory %

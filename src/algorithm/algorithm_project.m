@@ -17,6 +17,18 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @brief Scene point projection on camera
+    %
+    % This function creates a camera features direction unitary vectors array
+    % by projecting the provided scene points on the unit sphere corresponding
+    % to the camera, taking into account its position and rotation.
+    %
+    % @param sc_center     Camera center position
+    % @param sc_rotation   Camera rotation matrix
+    % @param sc_scene      Scene points position
+    %
+    % @return sc_direction Computed camera features direction unitary vectors
+
     function sc_direction = algorithm_project( sc_center, sc_rotation, sc_scene )
 
         % memory management %

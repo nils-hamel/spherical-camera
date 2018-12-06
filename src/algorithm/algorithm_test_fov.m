@@ -17,6 +17,35 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @brief Test function : field of view
+    %
+    % This function implements an analysis of the behaviour of the rotation and
+    % translation estimation precision according to the field of view of the
+    % camera.
+    %
+    % The experiments consist in two cameras place in opposition with the scene
+    % feature in a sphere at the center. The cameras are moved from far away to
+    % the center of the scene sphere. As the camera are far away, the angle of
+    % view with which the scene is seen is very narrow. As the cameras are
+    % getting closer, the view angle increase until the cameras enter the scene
+    % sphere.
+    %
+    % The angle of view is then identified to the camera distance to the center
+    % of the sphere : formally as the cameras are outside of the scene sphere
+    % and more statistically as the cameras are inside.
+    %
+    % For each camera position, 'sc_amount' are performed to obtain a mean and
+    % standard deviation on the pose estimation error.
+    %
+    % The function creates and exports two plots showing the evolution of the
+    % error mean and the standard deviation according to the field of view for
+    % both rotation and translation.
+    %
+    % @param sc_count   Number of features to consider
+    % @param sc_measure Number of angle of view to analyse
+    % @param sc_amount  Number of measure for each angle of view
+    % @param sc_output  Plots exportation path
+
     function algorithm_test_fov( sc_count, sc_measure, sc_amount, sc_output )
 
         % radius of the scene %
@@ -74,7 +103,7 @@
                 % accumulate error on rotation %
                 sc_acc_r(sc_j) = sc_r_err;
 
-                % accumulate error on tranlsation %
+                % accumulate error on translation %
                 sc_acc_t(sc_j) = sc_t_err;
 
             end

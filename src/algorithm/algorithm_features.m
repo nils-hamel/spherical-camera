@@ -17,6 +17,19 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+    % @brief Features position computation
+    %
+    % This function allows to compute the position of the features of a camera
+    % in its own frame.
+    %
+    % The function simply applies the provided radius value to the unitary
+    % direction vectors.
+    %
+    % @param sc_r Camera features radii
+    % @param sc_d Camera features directions unitary vector
+    %
+    % @return sc_point Computed features position in the camera frame
+
     function sc_point = algorithm_features( sc_r, sc_d )
 
         % compute point position %
