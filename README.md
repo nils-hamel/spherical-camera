@@ -1,10 +1,10 @@
 ## Overview
 
-This repository holds the definition and developments around an experimental spherical camera and its specific pose estimation algorithm. The camera and its algorithm were designed for the _ScanVan_ FNS project proposal (PNR 76 _Big Data_) won by the DHLAB (EPFL) and the Institut des Systèmes Industriels (HES-SO Valais) - Project FNS 167151.
+This repository holds the design definition and developments around an experimental spherical camera and its specific pose estimation algorithm. The camera and its algorithm were designed for the _ScanVan_ FNS project proposal (PNR 76 _Big Data_) won by the DHLAB (EPFL) and the Institut des Systèmes Industriels (HES-SO Valais) - Project FNS 167151.
 
-The goal of the _ScanVan_ project is to design a methodology for cities and environement scanning through structure from motion allowing a constant survey to take place. The objective is to develop a way of obtaining centimetric cities 3D scans on a daily basis, leading to 4D representations. Such 4D objects open the way to new systematic temporal evolution analysis of cities and their structures.
+The goal of the _ScanVan_ project is to design a methodology for cities and environment scanning through structure from motion allowing a constant survey to take place. The objective is to develop a way of obtaining centimetric cities 3D scans on a daily basis, leading to 4D representations. Such 4D objects open the way to new systematic temporal evolution analysis of cities and their structures.
 
-In this context, a spherical camera was designed along with a pose estimation algorithm allowing to take advantage of the camera specifications toward robust structure from motion pipelines. The spherical camera was designed to solve the problem of narrow fields of views of most devices usually considered for structure from motion leading to simpler and robust acquisition strategies.
+In this context, a spherical camera was designed along with a pose estimation algorithm allowing to take advantage of the camera specifications toward robust structure from motion pipelines. The spherical camera was designed to solve the problem of narrow fields of views of most devices usually considered for structure from motion, leading to simple and robust acquisition strategies.
 
 ## Spherical Camera
 
