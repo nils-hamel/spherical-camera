@@ -98,6 +98,28 @@ The following plots show the ability of the pose estimation algorithm to resist 
 
 This clearly shows that the algorithm is robust in case on strongly noised data and allows to maintain a constant precision in the estimation on the rotation and translation.
 
+The following plots show how the spherical approach is able to bring more precision on the estimation of the rotation and translation between the camera pose because of the distribution of _features_ on the entire sphere. The experience consists in two cameras that are getting closer to each other considering a set of _features_ grouped in a sphere between the two camera. As the camera are far away from the center of the _features_ sets, the scene is view by the capture through a small angle of view. As the camera get closer to each other, they enter the set of _features allowing to, step by step, increasing the angle of view of the _features_. It allows to illustrate how the stability and precision of the pose estimation evolve with the angle of view of the cameras. The following plots shows the evolution of the pose estimation precsion considering _16_ and _32_ _matched features_, _32_ position of the camera and _32_ different distribution of the _features_ in the scene sphere :
+
+<br />
+<p align="center">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-4a.jpg?raw=true" width="384">
+&nbsp;
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-4b.jpg?raw=true" width="384">
+<br />
+<i>Evolution of rotation (left) and tranlsation (right) estimation error mean and standard deviation according to the distribution of the features. For each of the 32 points of measure, 32 different sets of 16 features are considered - Images : Nils Hamel</i>
+</p>
+<br />
+
+<br />
+<p align="center">
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-5a.jpg?raw=true" width="384">
+&nbsp;
+<img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-5b.jpg?raw=true" width="384">
+<br />
+<i>Evolution of rotation (left) and tranlsation (right) estimation error mean and standard deviation according to the distribution of the features. For each of the 32 points of measure, 32 different sets of 32 features are considered - Images : Nils Hamel</i>
+</p>
+<br />
+
 
 
 ## ScanVan Teams
