@@ -40,7 +40,7 @@
     function algorithm_test_noise( sc_count, sc_amount, sc_output )
 
         % compose noise amplitude array %
-        sc_noise = linspace( 0.0, 2.0, 32 );
+        sc_noise = linspace( 0.0, 0.2, 16 );
 
         % reset plot array %
         sc_rot = zeros( length( sc_noise ), 2 );
@@ -75,8 +75,8 @@
                 sc_cambr = algorithm_randrot();
 
                 % adding noise to scene %
-                sc_scene_na = sc_scene; + ( rand( sc_count, 3 ) - 0.5 ) * sc_noise( sc_amplitude ) * sc_trans;
-                sc_scene_nb = sc_scene; + ( rand( sc_count, 3 ) - 0.5 ) * sc_noise( sc_amplitude ) * sc_trans;
+                sc_scene_na = sc_scene + ( rand( sc_count, 3 ) - 0.5 ) * sc_noise( sc_amplitude ) * sc_trans;
+                sc_scene_nb = sc_scene + ( rand( sc_count, 3 ) - 0.5 ) * sc_noise( sc_amplitude ) * sc_trans;
 
                 % compute directions - features %
                 sc_camad = algorithm_project( sc_camac, sc_camar, sc_scene_na );
