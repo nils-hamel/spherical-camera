@@ -64,13 +64,13 @@ To estimate the pose between the two cameras, the algorithm uses an iterative ap
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-1b.jpg?raw=true" width="384">
 <br />
-<i>Last algorithm iteration state on theoretical cases : the blue line gives the vector between the two camera centers while the grey lines link the camera center to the estimated position of the matched features - Images : Nils Hamel</i>
+<i>Last algorithm iteration state on theoretical cases : the blue line gives the vector between the two camera centers while the grey lines link the camera centers to the estimated position of the matched features - Images : Nils Hamel</i>
 </p>
 <br />
 
-The algorithm iterations stop condition is deduced from a characteristic of the algorithm design. As each _matched feature_ has a projection on each camera, two sets of radii are corrected at each iteration. The convergence condition is, considering the estimated rotation and translation, that the radii of one _matched features_ should lead to the same location, that is the position of the _feature_ in space. The distances between the two position defined by the two radii of a _feature_ can be used as an error function. Considering the largest error on a set of _matched features_, the algorithm stops is this value variation over two iteration goes below a tolerance value.
+The algorithm iterations stop condition is deduced from a characteristic of the algorithm design. As each _matched feature_ has a projection on each camera, two sets of radii are corrected at each iteration. The convergence condition is, considering the estimated rotation and translation, that the radii of one _matched features_ should lead to the same location, that is the position of the _feature_ in space. The distances between the two positions defined by the two radii of a _feature_ can be used as an error function. Considering the largest error on a set of _matched features_, the algorithm stops as this value variation over two iterations goes below a tolerance value.
 
-The following plots illustrate the convergence behavior of the algorithm on a simulated case using _32 features_. The plot on the left gives the maximum separation according to the iterations showing how _features_ get closer to their reciprocal along with the iterations. The plot on the right shows the error measures made on the estimated rotation and translation according to iteration :
+The following plots illustrate the convergence behavior of the algorithm on a simulated case using _32 features_. The plot on the left gives the _features_ maximum separation according to the iterations. This shows how the corrected radii are able to bring the _features_ position from the unit to a common position in space. The plot on the right shows the error measures made on the estimated rotation and translation according to iteration :
 
 <br />
 <p align="center">
@@ -78,7 +78,7 @@ The following plots illustrate the convergence behavior of the algorithm on a si
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-2b.jpg?raw=true" width="384">
 <br />
-<i>Left : feature maximum separation according to iterations - Right : error measure on the estimated rotation (orange) and translation (blue) - Images : Nils Hamel</i>
+<i>Features maximum separation according to iterations (left) and error measure on the estimated rotation (orange) and translation (blue) (right) - Images : Nils Hamel</i>
 </p>
 <br />
 
