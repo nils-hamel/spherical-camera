@@ -78,13 +78,15 @@ The following plots illustrate the convergence behavior of the algorithm on a si
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-2b.jpg?raw=true" width="384">
 <br />
-<i>Features maximum separation according to iterations (left) and error measure on the estimated rotation (orange) and translation (blue) (right) - Images : Nils Hamel</i>
+<i>Features maximum separation according to iterations (left) and error measure on the estimated rotation (orange, right) and translation (blue, right) - Images : Nils Hamel</i>
 </p>
 <br />
 
 The error measure on rotation is computed by multiplying the estimated matrix with the transposed of the true matrix. The identity is subtracted to the result before to consider the Frobenius norm. The error measure on translation is more complicated as the scale factor is not known. The error is computed by taking one minus the dot product between the estimated translation and the true translation converted as unit vectors.
 
-The following plots show the ability of the pose estimation algorithm to resist to strong noise on _matched features_. They show how the error on estimated rotations and translations evolve with the addition of noise to the position of the _matched features_. The algorithm is used on random situations on which noise is added on position of the _matched features_. The amplitude of the noise is expressed as a multiplication factor of the norm of the true translation between the two camera captures. In addition, independent noise is added for both camera. The following plot shows the error mean and standard deviation computed on _64_ pose estimation for each noise amplitude using each time _32 matched features_ :
+For stability reason, the pose estimation algorithm is augmented by a filtering procedure occurring at each iteration. This filtering process allows to remove a _feature_ from the set as its position becomes statistically too different from the other _features_ position. By removing such _outliers_, the algorithm become more stable even for badly conditioned situations.
+
+The following plots show the ability of the pose estimation algorithm to resist to noise on _matched features_. They show how the error on estimated rotations and translations evolve with the addition of noise to the position of the _matched features_. The algorithm is used on random situations on which noise is added on position of the _matched features_. The amplitude of the noise is expressed as a multiplication factor of the norm of the true translation between the two camera captures. In addition, independent noise is added for both camera. The following plots show the error mean and standard deviation computed on _64_ pose estimation for each noise amplitude using each time _32 matched features_ :
 
 <br />
 <p align="center">
@@ -96,9 +98,10 @@ The following plots show the ability of the pose estimation algorithm to resist 
 </p>
 <br />
 
-This clearly shows that the algorithm is robust in case on strongly noised data and allows to maintain a constant precision in the estimation on the rotation and translation.
+This shows that the algorithm is able to provide good estimation on rotation and translation even if all considered _features_
+are affected by noise.
 
-The following plots show how the spherical approach is able to bring more precision on the estimation of the rotation and translation between the camera pose because of the distribution of _features_ on the entire sphere. The experience consists in two cameras that are getting closer to each other considering a set of _features_ grouped in a sphere between the two camera. As the camera are far away from the center of the _features_ sets, the scene is view by the capture through a small angle of view. As the camera get closer to each other, they enter the set of _features_ allowing to, step by step, increasing the angle of view of the _features_. It allows to illustrate how the stability and precision of the pose estimation evolve with the angle of view of the cameras. The following plots shows the evolution of the pose estimation precsion considering _16_ and _32_ _matched features_, _32_ position of the camera and _32_ different distribution of the _features_ in the scene sphere :
+The following plots show how the spherical approach is able to bring more precision on the estimation of the rotation and translation between the camera pose because of the distribution of _features_ on the entire sphere. The experiment consists in two cameras that are getting closer to each other considering a set of _features_ grouped in a sphere between the two cameras. As the cameras are far away from the center of the _features_ sets, the scene is viewed by the cameras through a small angle of view. As the cameras get closer to each other, the angle of view of the _features_ increases. It allows to illustrate how the stability and precision of the pose estimation evolve with the angle of view of the cameras. The following plots show the evolution of the pose estimation precision considering _16_ and _32_ _matched features_, _32_ decreasing positions of the cameras and _32_ different distributions of the _features_ in the scene sphere :
 
 <br />
 <p align="center">
@@ -106,7 +109,7 @@ The following plots show how the spherical approach is able to bring more precis
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-4b.jpg?raw=true" width="384">
 <br />
-<i>Evolution of rotation (left) and tranlsation (right) estimation error mean and standard deviation according to the distribution of the features. For each of the 32 points of measure, 32 different sets of 16 features are considered. The light and dark blue lines give the 36x24mm sensors 35mm and 24mm corresponding angles of view - Images : Nils Hamel</i>
+<i>Evolution of rotation (left) and translation (right) estimation error mean and standard deviation according to the features angle of view. For each of the 32 points of measure, 32 different sets of 16 features are considered. The light and dark blue lines give the 36x24mm sensors 35mm and 24mm corresponding angles of view for comparison - Images : Nils Hamel</i>
 </p>
 <br />
 
@@ -116,29 +119,29 @@ The following plots show how the spherical approach is able to bring more precis
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-5b.jpg?raw=true" width="384">
 <br />
-<i>Evolution of rotation (left) and tranlsation (right) estimation error mean and standard deviation according to the distribution of the features. For each of the 32 points of measure, 32 different sets of 32 features are considered. The light and dark blue lines give the 36x24mm sensors 35mm and 24mm corresponding angles of view - Images : Nils Hamel</i>
+<i>Evolution of rotation (left) and translation (right) estimation error mean and standard deviation according to the features angle of view. For each of the 32 points of measure, 32 different sets of 32 features are considered. The light and dark blue lines give the 36x24mm sensors 35mm and 24mm corresponding angles of view for comparison - Images : Nils Hamel</i>
 </p>
 <br />
 
-These results shows how the increase of the angle of view is able to stablilize the estimation of the rotation and translation and to increase their precision. Such stability and precision is mendatory for large scale three-dimensional models computation  to ensure contained drift on the visual odometry and more robust pose estimation algorithm.
+These results show how the increase of the angle of view is able to stabilize the estimation of the rotation and translation and to increase their precision. Such stability and precision are mandatory for large scale three-dimensional models computation to ensure contained drift on the visual odometry.
 
-This overview of the algorithm expose the main elements that shows how spherical camera and algorithm are able to move structure from motion forward toward robust reconstruction pipeline and large scale models computation.
+This overview of the algorithm exposes the main elements that shows how spherical camera and algorithm are able to move structure from motion forward toward robust reconstruction pipeline and large scale models computation.
 
 ## ScanVan Teams
 
-The _ScanVan_ FNS project (PNR 76 _Big Data_, 167151) was won and conducted by the _DHLAB_ of EFPL and the _Institut des Systèmes Industriels_ of the HES-SO Valais with the following teams :
+The _ScanVan_ FNS project (PNR 76 _Big Data_, 167151) was won and conducted by the _DHLAB_ of EFPL and the _Institut des Systèmes Industriels_ of the HES-SO Valais :
 
-**EPFL** <br />
+**DHLAB - EPFL** <br />
 Nils Hamel, Scientist <br />
 Vincent Buntinx, Scientist <br />
 _Frédéric Kaplan, Professor_
 
-**HES-SO Valais** <br />
+**Institut des Systèmes Industriels - HES-SO Valais** <br />
 Charles Papon, Scientist <br />
 Marcelo Kaihara, Scientist <br />
 _Pierre-André Mudry, Professor_
 
-The EPFL team was responsible of the theoretical camera and algorithm design and the HES-SO team was in charge of the prototype development and the onboard implementation of the algorithm. The sources of the project can be accessed [here](https://github.com/ScanVan).
+The EPFL team was responsible for the theoretical camera and algorithm design and the HES-SO team was in charge of the prototype development and the onboard implementation of the algorithm. The sources of the project can be accessed [here](https://github.com/ScanVan).
 
 ## Dependencies
 
