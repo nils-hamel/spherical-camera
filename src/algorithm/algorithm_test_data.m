@@ -17,13 +17,21 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    % @breif Test function : random estimation
+    % @brief Test function : real case application
     %
-    % This function allows to set a random scene and camera position/orientation
-    % and to compute the pose estimation. The results are display on terminal
-    % and a plot of the last iteration is created and exported.
+    % This function allows to computes the pose estimation between two real case
+    % images using a set of matches extracted from the images. The computed
+    % rotation and translation displayed in the terminal. In addition, a plot
+    % of the final iteration is displayed and exported using the provided
+    % output path.
     %
-    % @param sc_count  Number of features to consider
+    % The matches are expected to be provided through the data array pointed by
+    % the provided path. The two first number of the file are interpreted as the
+    % width and height of the image from which features have been extracted and
+    % matched. The rest of the data file is interpreted as a N by 4 array that
+    % gives the x and y coordinates of each matched features (x1,y1,x2,y2).
+    %
+    % @param sc_count  Data file path
     % @param sc_output Plot exportation path
 
     function algorithm_test_data( sc_filepath, sc_output )

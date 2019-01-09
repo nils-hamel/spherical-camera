@@ -17,7 +17,7 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    % @biref Cameras radii correction
+    % @brief Cameras radii correction
     %
     % This function considers the provided features direction unitary vectors
     % and camera centers to compute their respective best intersections in the

@@ -17,7 +17,7 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    % @breif Test function : random estimation
+    % @brief Test function : random estimation
     %
     % This function allows to set a random scene and camera position/orientation
     % and to compute the pose estimation. The results are display on terminal

@@ -17,14 +17,14 @@
     %  You should have received a copy of the GNU General Public License
     %  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    % @breif Test function : random estimation
+    % @brief Pixels to direction
     %
-    % This function allows to set a random scene and camera position/orientation
-    % and to compute the pose estimation. The results are display on terminal
-    % and a plot of the last iteration is created and exported.
+    % This function converts the provided matched features pixel coordinates
+    % array into direction vectors using the size of the images on which the
+    % features belong.
     %
-    % @param sc_count  Number of features to consider
-    % @param sc_output Plot exportation path
+    % @param sc_size  Array containing the width and height of images, in pixels
+    % @param sc_match Array of match features coordinates (x1,y1,x2,y2)
 
     function [ sc_da, sc_db ] = algorithm_data( sc_size, sc_match )
 
