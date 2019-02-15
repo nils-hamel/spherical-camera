@@ -106,7 +106,7 @@
             end
 
             % filtering process - stability %
-            [ sc_ra, sc_rb, sc_da, sc_db ] = algorithm_filter( sc_ra, sc_da, sc_rb, sc_db, 2.0 );
+            [ sc_ra, sc_rb, sc_da, sc_db ] = algorithm_filter( sc_ra, sc_da, sc_rb, sc_db, 3.0 );
 
             % display information %
             fprintf( 2, 'Iteration %i with %g remaining and %d features\n', sc_iter, sc_icc, size( sc_ra, 1 ) );
