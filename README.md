@@ -66,11 +66,11 @@ Of course, the manufacture of the mirror and the mounting elements for the two s
 
 ## Spherical Algorithm
 
-The algorithm is designed to take advantage of the spherical configuration of the camera, and more specifically of the absence of intrinsic parameters. The absence of intrinsic parameters allows to simplify the pose estimation problem, reducing it to the simple estimation of one rotation matrix and one translation vector.
+The pose estimation algorithm specific to images captured using a spherical central camera is designed to take advantage of the configuration of the camera, and more specifically of the absence of intrinsic parameters. The absence of intrinsic parameters allows to simplify the pose estimation problem, reducing it to the simple estimation of one rotation matrix and one translation vector.
 
-Because the spherical camera is free of intrinsic parameters, the captures it produces can be identified to a simple projection on a unit sphere of the surrounding selected points. As for any pose estimation algorithm, _matched features_ are considered for the pose estimation between two spherical captures. A _matched feature_ is understood as a common scene point projected on the two unit spheres representing two camera captures. The input of the pose estimation algorithm is then a collection of points projected on the two unit spheres corresponding to the two cameras.
+Because the spherical camera is free of intrinsic parameters, the captures it produces can be identified to a simple projection on a unit sphere of the surrounding selected points. As for any pose estimation algorithm, _matched features_ are considered for the pose estimation between two spherical captures. The input of the pose estimation algorithm is then a collection of corresponding points projected on the two unit spheres associated to the two cameras.
 
-To estimate the pose between the two cameras, the algorithm uses an iterative application of the least-squares fitting of 3D point sets described in [4]. The following assumption is made : the point depths being lost after projection on camera unit spheres, it is assumed that the structure of the projection is sufficient to compute a first approximation of the rotation and translation to match the two point sets. With the knowledge of a first estimated rotation and translation, it is possible to correct the radii of the projections on the unit sphere through best intersection estimation between the _matched features_. In other words, the projections of the points are pushed away from the unit sphere to iteratively retrieve the depth information. After each radii correction, a new rotation and translation is computed applying the [4] method. At the end of the iterations, the correct depth of the point is expected to be known, leading to a good estimation of the rotation and translation between the two cameras. The following images give an illustration of the situation at the last iteration of two theoretical cases :
+To estimate the pose between the two cameras, the algorithm uses an iterative application of the least-squares fitting of 3D point sets described in [4]. The following assumption is made : the point depths being lost after projection on camera unit spheres, it is assumed that the structure of the projections is sufficient to compute a first approximation of the rotation and translation to match the two point sets. With the knowledge of a first estimated rotation and translation, it is possible to correct the radii of the projections on the unit sphere through best intersection estimation between the _matched features_. In other words, the projections of the points are pushed away from the unit sphere along the iterations to retrieve the depth information. After each radii correction, a new rotation and translation is computed applying the [4] method. At the end of the iterations, the correct depth of the point is expected to be known, leading to a good estimation of the rotation and translation between the two cameras. The following images give an illustration of the situation at the last iteration of two theoretical cases :
 
 <br />
 <p align="center">
@@ -78,13 +78,13 @@ To estimate the pose between the two cameras, the algorithm uses an iterative ap
 &nbsp;
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/algorithm-1b.jpg?raw=true" width="384">
 <br />
-<i>Last algorithm iteration state on theoretical cases : the blue line gives the vector between the two camera centers while the grey lines link the camera centers to the estimated position of the matched features - Images : Nils Hamel</i>
+<i>Algorithm last iteration state on theoretical cases : the blue line gives the vector between the two camera centers while the grey lines link the camera centers to the estimated position of the matched features - Images : Nils Hamel</i>
 </p>
 <br />
 
-The algorithm iterations stop condition is deduced from a characteristic of the algorithm design. As each _matched feature_ has a projection on each camera, two sets of radii are corrected at each iteration. The convergence condition is, considering the estimated rotation and translation, that the radii of one _matched features_ should lead to the same location, that is the position of the _feature_ in space. The distances between the two positions defined by the two radii of a _feature_ can be used as an error function. Considering the largest error on a set of _matched features_, the algorithm stops as this value variation over two iterations goes below a tolerance value.
+The algorithm iterations stop condition is deduced from a characteristic of the algorithm design. As each _matched feature_ has a projection on each camera, two sets of radii are corrected at each iteration. The convergence condition is, considering the estimated rotation and translation, that the radii of one _matched features_ should lead to the same location, that is the position of the _feature_ in space. The distances between the two positions defined by the two radii of the _features_ can be used as an error function. Considering the largest error on a set of _matched features_, the algorithm stops as this value variation over two iterations goes below a tolerance value.
 
-The following plots illustrate the convergence behavior of the algorithm on a simulated case using _32 features_. The plot on the left gives the _features_ maximum separation according to the iterations. This shows how the corrected radii are able to bring the _features_ position from the unit to a common position in space. The plot on the right shows the error measures made on the estimated rotation and translation according to iteration :
+The following plots illustrate the convergence behavior of the algorithm on a simulated case using _32 features_. The plot on the left gives the _features_ maximum separation according to the iterations. This shows how the corrected radii are able to bring the _features_ position away from the unit sphere to a common position in space. The plot on the right shows the error measures made on the estimated rotation and translation according to iterations (the _true_ values being known in the case of a simulated situation) :
 
 <br />
 <p align="center">
@@ -96,7 +96,7 @@ The following plots illustrate the convergence behavior of the algorithm on a si
 </p>
 <br />
 
-The error measure on rotation is computed by multiplying the estimated matrix with the transposed of the true matrix. The identity is subtracted to the result before to consider the Frobenius norm. The error measure on translation is more complicated as the scale factor is not known. The error is computed by taking one minus the dot product between the estimated translation and the true translation converted as unit vectors.
+The error measure on rotation is computed by multiplying the estimated matrix with the transposed of the _true_ matrix. The identity is subtracted to the result before to consider the Frobenius norm. The error measure on translation is more complicated as the scale factor is not known. The error is computed by taking one minus the dot product between the estimated translation and the _true_ translation converted as unit vectors.
 
 For stability reason, the pose estimation algorithm is augmented by a filtering procedure occurring at each iteration. This filtering process allows to remove a _feature_ from the set as its position becomes statistically too different from the other _features_ position. By removing such _outliers_, the algorithm become more stable even for badly conditioned situations.
 
@@ -112,10 +112,9 @@ The following plots show the ability of the pose estimation algorithm to resist 
 </p>
 <br />
 
-This shows that the algorithm is able to provide good estimation on rotation and translation even if all considered _features_
-are affected by noise.
+This shows that the algorithm is able to provide good estimation on rotation and translation even if all considered _features_ are affected by noise.
 
-The following plots show how the spherical approach is able to bring more precision on the estimation of the rotation and translation between the camera pose because of the distribution of _features_ on the entire sphere. The experiment consists in two cameras that are getting closer to each other considering a set of _features_ grouped in a sphere between the two cameras. As the cameras are far away from the center of the _features_ sets, the scene is viewed by the cameras through a small angle of view. As the cameras get closer to each other, the angle of view of the _features_ increases. It allows to illustrate how the stability and precision of the pose estimation evolve with the angle of view of the cameras. The following plots show the evolution of the pose estimation precision considering _16_ and _32_ _matched features_, _32_ decreasing positions of the cameras and _32_ different distributions of the _features_ in the scene sphere :
+The following plots show how the spherical approach is able to bring more precision on the estimation of the rotation and translation between the camera pose because of the distribution of _features_ on the entire sphere. The experiment consists in two cameras that are getting closer to each other considering a set of _features_ grouped in a sphere between the two cameras. As the cameras are far away from the center of the _features_ sets, the scene is viewed by the cameras through a small angle of view. As the cameras get closer to each other, the angle of view of the _features_ increases. It allows to illustrate how the stability and precision of the pose estimation evolve with the angle of view of the cameras. The following plots show the evolution of the pose estimation precision considering _16_ and _32_ _matched features_, _32_ positions of the cameras and _32_ different distributions of the _features_ in the scene sphere :
 
 <br />
 <p align="center">
@@ -139,7 +138,7 @@ The following plots show how the spherical approach is able to bring more precis
 
 These results show how the increase of the angle of view is able to stabilize the estimation of the rotation and translation and to increase their precision. Such stability and precision are mandatory for large scale three-dimensional models computation to ensure contained drift on the visual odometry.
 
-This overview of the algorithm exposes the main elements that shows how spherical camera and algorithm are able to move structure from motion forward toward robust reconstruction pipeline and large scale models computation.
+This overview of the algorithm exposes the main elements that shows how spherical cameras and algorithms are able to move structure from motion forward toward robust reconstruction pipeline and large scale models computation.
 
 ## Dependencies
 
