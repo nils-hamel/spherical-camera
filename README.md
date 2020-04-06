@@ -1,18 +1,32 @@
 ## Overview
 
-This repository holds the design definition and developments around an experimental spherical camera and its specific pose estimation algorithm. The camera and its algorithm were designed for the _ScanVan_ FNS project proposal (PNR 76 _Big Data_) won by the DHLAB (EPFL) and the Institut des Systèmes Industriels (HES-SO Valais) - Project FNS 167151.
+This repository propose the theoretical design of a spherical central camera with a specific algorithm definition for the pose estimation using image from such device. A section is dedicated to the theoretical design and a possible physical build of the spherical central camera used as a prototype in the _ScanVan Project_ (see below). A second section presents the definition of the pose estimation algorithm that takes into account the specific simplicity of images produced by such central device.
 
-The goal of the _ScanVan_ project is to design a methodology for cities and environment scanning through structure from motion allowing a constant survey to take place. The objective is to develop a way of obtaining centimetric cities 3D scans on a daily basis, leading to 4D representations. Such 4D objects open the way to new systematic temporal evolution analysis of cities and their structures.
+# ScanVan Project
 
-In this context, a spherical camera was designed along with a pose estimation algorithm allowing to take advantage of the camera specifications toward robust structure from motion pipelines. The spherical camera was designed to solve the problem of narrow fields of views of most devices usually considered for structure from motion, leading to simple and robust acquisition strategies.
+The _ScanVan Project_ was funded by the Swiss National Science Foundation (SNF, PNR 76 Big Data) and won by the _DHLAB_ of _EPFL_ and the _HES-SO Valais Wallis_. The goal of the project was to demonstrate the possibility of city mass and continuous digitization using central spherical cameras. Using such device allows to simplify the 3D structures computation and to drastically decrease the complexity of images acquisition.
+
+The _EPFL_ team realized the theoretical design of the camera and defined a new pose estimation algorithm able to be applied to the case of images acquired by such device. The _HES-SO Valais Wallis_ were in charge of translating the theoretic design of the camera into a physical device achieving the centrality. The codes implementation, validation and testing was shared between the two teams.
+
+Summary of the _ScanVan Project_ codes :
+
+* [Camera calibration](https://github.com/ScanVan/Calibration-CPP)
+* [Camera images acquisition](https://github.com/ScanVan/CameraImageAcquisition-CPP)
+* [Camera images debayering](https://github.com/ScanVan/ConvertRawToBmp)
+* [Panoramic images computation](https://github.com/ScanVan/Equirectangular-CPP)
+* [Structure from spheres pipeline](https://github.com/ScanVan/sfs-framework)
+
+These codes and the physical camera give access to a full city digitization pipeline. Other codes were implemented during the research phase and can be found [here](https://github.com/ScanVan).
 
 ## Spherical Camera
 
-The design of the proposed camera is made to address the problem of narrow fields of views of traditional cameras in the context of structure from motion and 3D models computation. The design allows the camera to see everything within a single shot. This allows to consider wider distribution of features leading to more stable and robust pose estimation. It then allows to reduce the complexity of image acquisition, as everything is viewed on each camera capture. The proposed camera design brings researches on paraboloid [1] and hyperboloid [2] cameras a step forward allowing four _pi_ field of view capability.
+The design of the proposed camera is made to address the problem of narrow fields of views of traditional cameras in the context of structure from motion and 3D models computation. The design allows the camera to see everything in the surroundings within a single shot. This allows to consider wider distribution of features leading to more stable and robust pose estimation. It then allows to reduce the complexity of image acquisition, as everything is viewed on each camera capture. The proposed camera design brings researches on paraboloid [1] and hyperboloid [2] cameras a step forward allowing four _pi_ field of view capability.
 
-In addition to the field of view, the design of the proposed camera also ensures that all the collected light is focused on a single and common focal point. This property is crucial from the structure from motion point of view, as it allows to consider simple and robust algorithms for pose estimation.
+In addition to the field of view, the design of the proposed camera also ensures that all the collected light is focused on a single and common focal point. This property is crucial from the structure from motion point of view, as it allows to consider more simple and robust algorithms for the pose estimation problem.
 
-The camera is based on a central two-sided hyperbolic mirror allowing to ensure capture of the entire surrounding sphere and the focusing on a single common focal point. Three parameters describe the camera design and can be modulated to obtain different configurations and sizes. The following images give an illustration of the camera design for a specific sets of parameters :
+The camera is based on a central two-sided hyperbolic mirror allowing to ensure capture of the entire surrounding sphere and to focus all light rays on a single common focal point. The mirror being made from a single metal piece, it allows to maintain an high degree of confidence on the device centrality.
+
+Three parameters describe the camera design and can be modulated to obtain different configurations and sizes. These parameters are the hyperbolic mirror eccentricity, the distance of the hyperbolas focal point to the origin and the size of the sensors. The following images give an illustration of the camera design for a specific sets of parameters :
 
 <br />
 <p align="center">
@@ -24,9 +38,9 @@ The camera is based on a central two-sided hyperbolic mirror allowing to ensure 
 </p>
 <br />
 
-Changing the parameter allows to modulate the size of the mirror, its thickness, the distance of the sensors to the mirror center and the size of the sensor themselves.
+Changing the parameters allows to modulate the size of the mirror, its thickness, the distance of the sensors to the mirror center and the size of the sensor themselves.
 
-The proposed design is theoretical and ideal. Indeed, the light reflected by the principal mirror can not be collected by a sensor directly. The sensors can then be replaced by standard small cameras to produce the image captures. This solution was adopted in collaboration with the HES-SO Valais to produce a first prototype of the spherical camera based on the proposed design. The following images give a view of the built prototype :
+The proposed design is theoretical and ideal. Indeed, the light reflected by the principal mirror can not be collected by a sensor directly. The sensors can then be replaced by standard small cameras to produce the images. This solution was adopted in the _ScanVan Project_ to produce a first prototype of the spherical camera based on the proposed design. The following images give a view of the built prototype :
 
 <br />
 <p align="center">
@@ -38,17 +52,17 @@ The proposed design is theoretical and ideal. Indeed, the light reflected by the
 </p>
 <br />
 
-As the sensors are replaced by traditional cameras, the device has to be calibrated in order to obtain the desired ideal images. The calibration procedure proposed in [3] is considered for the _scanvan_ project prototype. The following image gives an example of the obtained capture using the calibrated prototype :
+As the sensors are replaced by traditional cameras, the device has to be calibrated in order to obtain the desired ideal images, usually represented using equirectangular mappings. The calibration procedure proposed in [3] was considered for the _ScanVan Project_ prototype. The following image gives an example of the obtained capture using the calibrated prototype :
 
 <br />
 <p align="center">
 <img src="https://github.com/nils-hamel/spherical-camera/blob/master/doc/image/camera-3.jpg?raw=true" width="480">
 <br />
-<i>Example of device capture in equirectangular mapping - Image : Charles Papon & Marcelo Kaihara</i>
+<i>Example of device capture in equirectangular mapping (the camera parts and operator are removed from the image) - Image : Charles Papon & Marcelo Kaihara</i>
 </p>
 <br />
 
-Of course, the manufacture of the mirror and the mounting elements for the two side cameras used to capture the mirror reflected light induce reduction of the four _pi_ field of view. Nevertheless, this prototype is able to considerably increase the field of view according to standard cameras and other omnidirectional devices, toward robust structure from motion pipelines. As a last element, the images captured by the camera produce _perfect_ four _pi_ panoramas without parallax effects within single shots.
+Of course, the manufacture of the mirror and the mounting elements for the two side cameras used to capture the mirror reflected light induce reduction of the four _pi_ field of view. Nevertheless, this prototype is able to considerably increase the field of view according to standard cameras and other omnidirectional devices, toward robust structure from motion pipelines. As a last element, the images captured by the camera produce _perfect_ four _pi_ panoramas without parallax effects
 
 ## Spherical Algorithm
 
@@ -127,25 +141,9 @@ These results show how the increase of the angle of view is able to stabilize th
 
 This overview of the algorithm exposes the main elements that shows how spherical camera and algorithm are able to move structure from motion forward toward robust reconstruction pipeline and large scale models computation.
 
-## ScanVan Teams
-
-The _ScanVan_ FNS project (PNR 76 _Big Data_, 167151) was won and conducted by the _DHLAB_ of EFPL and the _Institut des Systèmes Industriels_ of the HES-SO Valais :
-
-**DHLAB - EPFL** <br />
-Nils Hamel, Scientist <br />
-Vincent Buntinx, Scientist <br />
-_Frédéric Kaplan, Professor_
-
-**Institut des Systèmes Industriels - HES-SO Valais** <br />
-Charles Papon, Scientist <br />
-Marcelo Kaihara, Scientist <br />
-_Pierre-André Mudry, Professor_
-
-The EPFL team was responsible for the theoretical camera and algorithm design and the HES-SO team was in charge of the prototype development and the onboard implementation of the algorithm. The sources of the project can be accessed [here](https://github.com/ScanVan).
-
 ## Dependencies
 
-The _spherical-camera_ repository comes with the following package dependencies (Ubuntu 16.04 LTS) :
+The _spherical-camera_ repository comes with the following package dependencies ([Instructions](DEPEND.md)) :
 
 * octave
 
@@ -154,9 +152,9 @@ The code documentation is available in source files.
 ## Copyright and License
 
 **spherical-camera** - Nils Hamel <br >
-Copyright (c) 2016-2018 DHLAB, EPFL
+Copyright (c) 2016-2020 DHLAB, EPFL
 
-This program is licensed under the terms of the GNU GPLv3.
+This program is licensed under the terms of the GNU GPLv3. Documentation and illustrations are licensed under the terms of the CC BY 4.0.
 
 ## References
 
