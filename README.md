@@ -142,11 +142,9 @@ This overview of the algorithm exposes the main elements that shows how spherica
 
 ## Dependencies
 
-The _spherical-camera_ repository comes with the following package dependencies ([Instructions](DEPEND.md)) :
+The _spherical-camera_ comes with the following package (Ubuntu 16.04 LTS) dependencies ([Instructions](DEPEND.md)) :
 
 * octave
-
-The code documentation is available in source files.
 
 ## Copyright and License
 
