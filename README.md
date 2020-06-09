@@ -2,7 +2,7 @@
 
 This repository propose the theoretical design of a spherical central camera with a specific algorithm definition for the pose estimation using image from such device. A section is dedicated to the theoretical design and a possible physical build of the spherical central camera used as a prototype in the _ScanVan Project_ (see below). A second section presents the definition of the pose estimation algorithm that takes into account the specific simplicity of images produced by such central device.
 
-# ScanVan Project
+## ScanVan Project
 
 The _ScanVan Project_ was funded by the Swiss National Science Foundation (SNF, PNR 76 Big Data) and won by the _DHLAB_ of _EPFL_ and the _HES-SO Valais Wallis_. The goal of the project was to demonstrate the possibility of city mass and continuous digitization using central spherical cameras. Using such device allows to simplify the 3D structures computation and to drastically decrease the complexity of images acquisition.
 
@@ -18,7 +18,9 @@ Summary of the _ScanVan Project_ codes :
 
 These codes and the physical camera give access to a full city digitization pipeline. Other codes were implemented during the research phase and can be found [here](https://github.com/ScanVan).
 
-## Spherical Camera
+## spherical-camera
+
+### Spherical Camera Design
 
 The design of the proposed camera is made to address the problem of narrow fields of views of traditional cameras in the context of structure from motion and 3D models computation. The design allows the camera to see everything in the surroundings within a single shot. This allows to consider wider distribution of features leading to more stable and robust pose estimation. It then allows to reduce the complexity of image acquisition, as everything is viewed on each camera capture. The proposed camera design brings researches on paraboloid [1] and hyperboloid [2] cameras a step forward allowing four _pi_ field of view capability.
 
@@ -64,7 +66,7 @@ As the sensors are replaced by traditional cameras, the device has to be calibra
 
 Of course, the manufacture of the mirror and the mounting elements for the two side cameras used to capture the mirror reflected light induce reduction of the four _pi_ field of view. Nevertheless, this prototype is able to considerably increase the field of view according to standard cameras and other omnidirectional devices, toward robust structure from motion pipelines. As a last element, the images captured by the camera produce _perfect_ four _pi_ panoramas without parallax effects
 
-## Spherical Algorithm
+### Spherical Camera Algorithm
 
 The pose estimation algorithm specific to images captured using a spherical central camera is designed to take advantage of the configuration of the camera, and more specifically of the absence of intrinsic parameters. The absence of intrinsic parameters allows to simplify the pose estimation problem, reducing it to the simple estimation of one rotation matrix and one translation vector.
 
